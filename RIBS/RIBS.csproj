@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+	<PropertyGroup>
+		<AssemblyName>RIBS</AssemblyName>
+		<GenerateAssemblyInfo>False</GenerateAssemblyInfo>
+		<OutputType>WinExe</OutputType>
+		<UseWindowsForms>True</UseWindowsForms>
+		<TargetFramework>net6.0-windows</TargetFramework>
+		<PlatformTarget>x86</PlatformTarget>
+		<NoWarn>$(NoWarn);SYSLIB0011</NoWarn>
+	</PropertyGroup>
+	<PropertyGroup>
+		<LangVersion>10.0</LangVersion>
+		<AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+	</PropertyGroup>
+	<PropertyGroup>
+		<ApplicationIcon>app.ico</ApplicationIcon>
+		<RootNamespace />
+	</PropertyGroup>
+	<ItemGroup>
+		<None Remove="RIBS_V3.resources.RIBS_Frequency_Reader.sm" />
+		<None Remove="RIBS_V3.resources.default_project.sm" />
+		<None Remove="RIBS_V3.resources.RIBS_ch5_Pwm_sample.sm" />
+		<None Remove="RIBS_V3.resources.RIBS_ch3_ApplauseMeter_Mealy_sample.sm" />
+		<None Remove="RIBS_V3.resources.RIBS_ch7_LedShowMultiPeriod_sample.sm" />
+		<None Remove="RIBS_V3.resources.RIBS_ch12_PID_sample.sm" />
+		<None Remove="RIBS_V3.resources.RIBS_ch5_DoorBell_sample.sm" />
+		<None Remove="RIBS_V3.resources.RIBS_ch6_LedShow_sample.sm" />
+		<None Remove="RIBS_V3.resources.RIBS_ch3_ApplauseMeter_Moore_sample.sm" />
+		<None Remove="RIBS_V3.resources.RIBS_ch6_MotionLamp_sample.sm" />
+		<None Remove="RIBS_V3.resources.RIBS_ch3_Latch_sample.sm" />
+		<None Remove="RIBS_V3.resources.RIBS_ch5_SpeakerProject_sample.sm" />
+		<None Remove="RIBS_V3.resources.RIBS_ch5_GlitchFilter_sample.sm" />
+		<EmbeddedResource Include="RIBS_V3.resources.RIBS_Frequency_Reader.sm" />
+		<EmbeddedResource Include="RIBS_V3.resources.default_project.sm" />
+		<EmbeddedResource Include="RIBS_V3.resources.RIBS_ch5_Pwm_sample.sm" />
+		<EmbeddedResource Include="RIBS_V3.resources.RIBS_ch3_ApplauseMeter_Mealy_sample.sm" />
+		<EmbeddedResource Include="RIBS_V3.resources.RIBS_ch7_LedShowMultiPeriod_sample.sm" />
+		<EmbeddedResource Include="RIBS_V3.resources.RIBS_ch12_PID_sample.sm" />
+		<EmbeddedResource Include="RIBS_V3.resources.RIBS_ch5_DoorBell_sample.sm" />
+		<EmbeddedResource Include="RIBS_V3.resources.RIBS_ch6_LedShow_sample.sm" />
+		<EmbeddedResource Include="RIBS_V3.resources.RIBS_ch3_ApplauseMeter_Moore_sample.sm" />
+		<EmbeddedResource Include="RIBS_V3.resources.RIBS_ch6_MotionLamp_sample.sm" />
+		<EmbeddedResource Include="RIBS_V3.resources.RIBS_ch3_Latch_sample.sm" />
+		<EmbeddedResource Include="RIBS_V3.resources.RIBS_ch5_SpeakerProject_sample.sm" />
+		<EmbeddedResource Include="RIBS_V3.resources.RIBS_ch5_GlitchFilter_sample.sm" />
+	</ItemGroup>
+	<ItemGroup>
+		<Reference Include="System.Data" />
+		<Reference Include="System.Core" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers" Version="0.4.355802">
+			<PrivateAssets>all</PrivateAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.Windows.Compatibility" Version="7.0.0" />
+	</ItemGroup>
+</Project>

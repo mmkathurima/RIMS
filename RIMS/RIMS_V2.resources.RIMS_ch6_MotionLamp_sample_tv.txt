@@ -1,0 +1,32 @@
+0x00
+wait 1 s
+assert 0
+0x01
+wait 450 ms
+assert 0x03
+wait 200 ms
+assert 0x02
+wait 200 ms
+assert 0x03
+0x00
+wait 100 ms
+assert 0x03
+wait 900 ms
+assert 0x02
+wait 1000 ms
+assert 0x02
+wait 1000 ms
+assert 0x02
+wait 1000 ms
+assert 0x02
+wait 1000 ms
+assert 0x02
+wait 1000 ms
+assert 0x02
+wait 1000 ms
+assert 0x02
+wait 1000 ms
+assert 0x02
+wait 2200 ms
+assert 0x00
+generatetd

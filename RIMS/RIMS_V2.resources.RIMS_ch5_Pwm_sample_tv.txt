@@ -1,0 +1,7 @@
+wait 150 ms
+assert 1
+wait 800 ms
+assert 0
+wait 1200 ms 
+assert 1
+generatetd

@@ -1,0 +1,27 @@
+b00000000
+wait 1 s
+255
+wait 1 s
+assert 8
+assert b00001000
+assert 0x08
+wait 0.5 s
+b00000010
+wait 3000 ms
+assert 1
+b11111101
+wait 200 ms
+assert 7
+b00010101
+wait 500 ms
+assert 3
+b11000011
+wait 2 s
+assert 4
+b01000010
+wait 1 s
+assert 2
+0xFF
+wait 1 s
+assert 8
+generatetd

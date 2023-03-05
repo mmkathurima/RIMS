@@ -1,0 +1,1518 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="RIMS_sample_code" xml:space="preserve">
+    <value>#include "rims.h"
+
+/* This is a sample program.  You can save/compile/run it, 
+   modify it first, or just load a different program.      */
+
+/* Sets B0 to 1 as quickly as possible when A0==1 and A1==0*/
+
+/* Note that A0 - A7 can be set by clicking the switches to 
+   the left, and B0 - B7 can be viewed as LEDs to the right
+   (green corresponds to '1', red to '0').                 */
+
+int main()
+{
+   while (1) { 
+      B0 = A0 &amp;&amp; A1;
+   }
+}
+</value>
+  </data>
+  <data name="RIMS_TimerExample_Toggle" xml:space="preserve">
+    <value>/*
+	RIMS_TimerExample_Toggle.c
+	A simple program that toggles an led on off after a full button press( 0 -&gt; 1 -&gt; 0)
+*/
+
+#include "rims.h"
+
+unsigned char TG_Clk;
+void TimerISR() {
+   TG_Clk = 1;
+}
+
+enum TG_States { TG_s0, TG_s1, TG_s2, TG_s3 } TG_State;
+
+TG_Tick() {
+   switch(TG_State) { // Transitions
+      case -1:
+         TG_State = TG_s0;
+         break;
+         case TG_s0: //wait for press
+         if (A0) {
+            TG_State = TG_s1;
+         }
+         else if (!A0) {
+            TG_State = TG_s0;
+         }
+         break;
+      case TG_s1: //wait for release
+         if (!A0) {
+            TG_State = TG_s2;
+         }
+         else if (A0) {
+            TG_State = TG_s1;
+         }
+         break;
+      case TG_s2: //wait for press
+         if (A0) {
+            TG_State = TG_s3;
+         }
+         else if (!A0) {
+            TG_State = TG_s2;
+         }
+         break;
+      case TG_s3: //wait for release
+         if (!A0) {
+            TG_State = TG_s0;
+         }
+         else if (A0) {
+            TG_State = TG_s3;
+         }
+         break;
+      default:
+         TG_State = TG_s0;
+   } // Transitions
+
+   switch(TG_State) { // State actions
+      case TG_s0: //init output/off state
+         B0 = 0;
+         break;
+      case TG_s1: //waiting for release
+         break;
+      case TG_s2: //they released the button, turn on the light
+         B0 = 1;
+         break;
+      case TG_s3: //waiting for release, once they do we will go to s0 and turn off the led
+         break;
+      default: // ADD default behaviour below
+      break;
+   } // State actions
+
+}
+
+int main() {
+
+   const unsigned int TG_Period = 200; // .2s
+   TimerSet(TG_Period); //set the period
+   TimerOn(); //turn on timer, will fire every .2s
+   
+   TG_State = -1; // Initial state
+   B = 0; // Init outputs
+
+   while(1) {
+      TG_Tick(); //call tick
+      while(!TG_Clk); //wait on isr
+      TG_Clk = 0;
+   } // while (1)
+} // Main</value>
+  </data>
+  <data name="RIMS_ch7_LedShow" xml:space="preserve">
+    <value>/*
+Assume two synchSMs have the same period, such as
+the earlier BlinkLed (BL) and ThreeLeds (TL) synchSMs having periods of 500 ms
+
+Every 500 ms, the TickFct_BlinkLed and
+the TickFct_ThreeLeds tick functions will be called, and thus each synchSM will proceed one
+tick every 500 ms
+
+*/
+
+#include "RIMS.h"
+
+volatile unsigned char TimerFlag = 0; 
+
+void TimerISR(void) {
+   TimerFlag = 1;
+}
+
+typedef struct {
+   int state;
+   unsigned long period;
+   unsigned long elapsedTime;
+   int (*TickFct)(int);
+} task_t;
+
+enum BL_States { BL_LEDOFF, BL_LEDON };
+
+int BL_Tick(int state) {
+   switch(state) { // Transitions
+      case -1:
+         state = BL_LEDOFF;
+         break;
+      case BL_LEDOFF:
+         state = BL_LEDON;
+         break;
+      case BL_LEDON:
+         state = BL_LEDOFF;
+         break;
+      default:
+         state = -1;
+         break;
+   }
+
+   switch(state) { // State actions
+      case BL_LEDOFF:
+         B0 = 0;
+         break;
+      case BL_LEDON:
+         B0 = 1;
+         break;
+      default:
+         break;
+   }
+   return state;
+}
+
+enum TL_States { TL_ONE, TL_TWO, TL_THREE };
+
+int TL_Tick(int state) {
+   switch(state) { //Transitions
+      case -1:
+         state = TL_ONE;
+         break;
+      case TL_ONE:
+         state = TL_TWO;
+         break;
+      case TL_TWO:
+         state = TL_THREE;
+         break;
+      case TL_THREE:
+         state = TL_ONE;
+         break;
+      default:
+         state = -1;
+         break;
+      }
+
+   switch(state) { //State actions
+      case TL_ONE:
+         B5 = 1;
+         B6 = 0;
+         B7 = 0;
+         break;
+      case TL_TWO:
+         B5 = 0;
+         B6 = 1;
+         B7 = 0;
+         break;
+      case TL_THREE:
+         B5 = 0;
+         B6 = 0;
+         B7 = 1;
+         break;
+      default:
+         break;
+   }
+   return state;
+}
+
+int main()
+{
+   const unsigned long BL_period = 1500;
+   const unsigned long TL_period = 500;
+
+   const unsigned long GCD = 500;
+
+   unsigned char i; // Index for scheduler's for loop
+
+   static task_t        task1,  task2;
+   task_t *tasks[] = { &amp;task1, &amp;task2 };
+   const unsigned short numTasks = sizeof(tasks) / sizeof(task_t*);
+
+   task1.state       = -1;
+   task1.period      = BL_period;
+   task1.elapsedTime = BL_period;
+   task1.TickFct     = &amp;BL_Tick;
+   
+   task2.state       = -1;
+   task2.period      = TL_period;
+   task2.elapsedTime = TL_period;
+   task2.TickFct     = &amp;TL_Tick;
+
+   TimerSet(GCD);
+   TimerOn();
+   
+   while(1) {
+      for ( i = 0; i &lt; numTasks; ++i ) {
+         if ( tasks[i]-&gt;elapsedTime == tasks[i]-&gt;period ) { 
+            // Task is ready to tick, so call its tick function
+            tasks[i]-&gt;state = tasks[i]-&gt;TickFct(tasks[i]-&gt;state);
+            tasks[i]-&gt;elapsedTime = 0; // Reset the elapsed time
+         }
+         tasks[i]-&gt;elapsedTime += GCD; // Account for below wait
+      }
+      while(!TimerFlag); // Wait for next timer tick
+      TimerFlag = 0;
+   }
+}</value>
+  </data>
+  <data name="RIMS_UARTExample_Echo" xml:space="preserve">
+    <value>/* This is a sample program.  You can compile/run it,
+   modify it first, or just load a different program. */
+
+/*This program takes all UART input received and transmits 
+it right back out.  Entering input to the UART input buffer
+will result in that same input appearing in the UART output
+history.*/
+
+#include "rims.h"
+
+int Flag;
+void RxISR() { 
+   Flag = 1; //This is executed when the UART receives new data
+}
+
+int main()
+{
+   UARTOn();//Turn on UART
+   while(1){
+      while(!Flag);//wait until we receive a full character
+      Flag = 0;
+      while (!TxReady);//and make sure we're clear to transmit
+      T = R;
+   }
+}
+</value>
+  </data>
+  <data name="RIMS_ProducerConsumer_multi" xml:space="preserve">
+    <value>/*
+This code was automatically generated using the Riverside-Irvine State machine Builder tool
+Version 2.1 --- 7/6/2011 11:31:44 PST
+*/
+
+#include "rims.h"
+
+
+//This sample is a simple producer/consumer example, containing two state machines. The producer will create items at 4x the speed of the consumer, thus eventually filling the entire queue.
+
+#define SIZE 20
+
+unsigned char queue[SIZE] = {0};
+int front = 0, back = 0;
+
+void push(unsigned char c) {
+   if (front%SIZE == (back+1)%SIZE) {
+      puts("Queue full\n");
+      return;
+   }
+   queue[back] = c;
+   back = (back+1)%SIZE;
+}
+
+unsigned char pop() {
+   if (front == back) {
+      puts("queue empty\n");
+      return;
+   }
+   front = (front+1)%SIZE;
+   return queue[(front-1)%SIZE];
+}
+
+unsigned char flag = 0;
+void TimerISR() {
+   flag = 1;
+}
+
+unsigned char rx_flag = 0;
+void RxISR() {
+   rx_flag = 1;
+}
+const unsigned long int numTasks = 2;
+
+const unsigned long int P_period = 250;
+const unsigned long int C_period = 1000;
+
+const unsigned long int GCD = 250;
+
+typedef struct task {
+   int state;
+   unsigned long int period;
+   unsigned long int elapsedTime;
+   int (*TickFct)(int);
+} task;
+
+
+enum P_States { P_s0 } P_State;
+int P_Tick(int state) {
+   static int i = 0;
+switch(state) { // Transitions
+      case -1:
+         state = P_State = P_s0;
+         break;
+      case P_s0:
+         if (1) {
+            state = P_State = P_s0;
+         }
+         break;
+      default:
+         state = -1;
+      } // Transitions
+
+   switch(state) { // State actions
+      case P_s0:
+         push(i++);
+         break;
+      default: // ADD default behaviour below
+         break;
+   } // State actions
+   return state;
+}
+
+
+enum C_States { C_s0 } C_State;
+int C_Tick(int state) {
+   
+switch(state) { // Transitions
+      case -1:
+         state = C_State = C_s0;
+         break;
+      case C_s0:
+         if (1) {
+            state = C_State = C_s0;
+         }
+         break;
+      default:
+         state = -1;
+      } // Transitions
+
+   switch(state) { // State actions
+      case C_s0:
+         puti(pop());
+putc('\n');
+         break;
+      default: // ADD default behaviour below
+         break;
+   } // State actions
+   return state;
+}
+
+int main() {
+   unsigned long int i; //scheduler for-loop iterator
+
+   task tasks[2];
+
+   tasks[0].state = -1;
+   tasks[0].period = 250;
+   tasks[0].elapsedTime = 250;
+   tasks[0].TickFct = &amp;P_Tick;
+
+   tasks[1].state = -1;
+   tasks[1].period = 1000;
+   tasks[1].elapsedTime = 1000;
+   tasks[1].TickFct = &amp;C_Tick;
+
+   TimerSet(GCD);
+   TimerOn();
+   UARTOn();
+while(1) {
+      for ( i = 0; i &lt; numTasks; ++i ) {
+         if ( tasks[i].elapsedTime == tasks[i].period ) {
+            tasks[i].state = tasks[i].TickFct(tasks[i].state);
+            tasks[i].elapsedTime = 0;
+         }
+         tasks[i].elapsedTime += GCD;
+      }
+      while(!flag);
+      flag = 0;
+   }
+   return 0;
+}</value>
+  </data>
+  <data name="RIMS_ch3_Latch" xml:space="preserve">
+    <value>
+
+/*
+SM named Latch (abbreviated as LA), which saves (or "latches") the value of A1 onto
+B0 whenever A0 is 1
+*/
+
+#include "rims.h"
+
+/*Define User Variables and Functions For this State Machine Here.*/
+
+unsigned char SM1_Clk;
+void TimerISR() {
+   SM1_Clk = 1;
+}
+
+enum SM1_States { SM1_s1, SM1_s2 } SM1_State;
+
+TickFct_State_Machine_1() {
+   switch(SM1_State) { // Transitions
+      case -1:
+         SM1_State = SM1_s1;
+         break;
+         case SM1_s1: //wait on A0
+         if (!A0) {
+            SM1_State = SM1_s1;
+         }
+         else if (A0) {
+            SM1_State = SM1_s2;
+         }
+         break;
+      case SM1_s2: //wait on release 
+         if (A0) {
+            SM1_State = SM1_s2;
+         }
+         else if (!A0) {
+            SM1_State = SM1_s1;
+         }
+         break;
+      default:
+         SM1_State = SM1_s1;
+   } // Transitions
+
+   switch(SM1_State) { // State actions
+      case SM1_s1:
+         break;
+      case SM1_s2: //A0 pressed, save A1
+         B0 = A1;
+         break;
+      default: // ADD default behaviour below
+      break;
+   } // State actions
+
+}
+
+int main() {
+
+   const unsigned int periodState_Machine_1 = 1000; // 1000 ms default
+   TimerSet(periodState_Machine_1);
+   TimerOn();
+   
+   SM1_State = -1; // Initial state
+   B = 0; // Init outputs
+
+   while(1) {
+      TickFct_State_Machine_1();
+      while(!SM1_Clk);
+      SM1_Clk = 0;
+   } // while (1)
+} // Main</value>
+  </data>
+  <data name="RIMS_Example_other" xml:space="preserve">
+    <value>/*
+This code was automatically generated using the Riverside-Irvine State machine Builder tool
+Version 2.1 --- 1/28/2010 14:44:53 PST
+*/
+
+#include "rims.h"
+
+/*Global C code is defined at global scope in generated code*/
+
+int SM_Clk;
+void TimerISR() {
+   SM_Clk = 1;
+}
+
+void SM_ClkTick() {
+   while(!SM_Clk);
+   SM_Clk = 0;
+}
+
+enum SM_States { SM_s0, SM_s1, SM_s2 } SM_State;
+
+int main() {
+
+   /*Local C code is located inside main() in generated code*/
+
+   const int SM_Period = 1000; // 1000 ms default
+   TimerSet(SM_Period);
+   TimerOn();
+   
+   SM_State = SM_s0; // Initial state
+   B = 0; // Init outputs
+
+   while(1) {
+      switch(SM_State) { // State actions
+         case SM_s0:
+            break;
+         case SM_s1:
+            break;
+         case SM_s2:
+            B++;
+            break;
+         default: // ADD default behaviour below
+         break;
+      } // State actions
+
+      SM_ClkTick();
+
+      switch(SM_State) { // Transitions
+         case SM_s0:
+            if (A0 &amp;&amp; !A1) {
+               SM_State = SM_s1;
+            }
+            else if (!A0 &amp;&amp; !A1) {
+               SM_State = SM_s0;
+            }
+            break;
+         case SM_s1:
+            if (A0 &amp;&amp; A1) {
+               SM_State = SM_s2;
+            }
+            else if (A0 &amp;&amp; !A1) {
+               SM_State = SM_s1;
+            }
+            else {
+               SM_State = SM_s0;
+            }
+            break;
+         case SM_s2:
+            if (1) {
+               SM_State = SM_s0;
+            }
+            break;
+         default:
+            SM_State = SM_s0;
+      } // Transitions
+   } // while (1)
+} // Main</value>
+  </data>
+  <data name="RIMS_TimerExample_Basic" xml:space="preserve">
+    <value>/* This is a sample program.  You can compile/run it, 
+     modify it first, or just load a different program. */
+
+/*This program will continuously wait 5s, assign A to B,
+then repeat.                                            */
+
+#include "rims.h"
+
+int Flag = 0;
+
+void TimerISR() {
+   Flag = 1;
+}
+
+int main() 
+{
+   const int Period = 5000; //5s
+   TimerSet(Period);//Set timer period
+   TimerOn();//Turn timer on
+
+   B = 0;//Initialize output
+
+   while (1) {
+      while(!Flag) {}
+      Flag = 0;//wait for a timer period to elapse
+	  B = A;//assign input to output
+   }
+}</value>
+  </data>
+  <data name="RIMS_CrosswalkExample" xml:space="preserve">
+    <value>/*
+This code was automatically generated using the Riverside-Irvine State machine Builder tool
+Version 2.3 --- 6/28/2010 13:3:34 PST
+*/
+
+#include "rims.h"
+
+/* This is a sample crosswalk design. A non jaywalking pedestrian would push the button attached to A0 to inform the system that they desire to cross the street.  The state machine then gives the walk signal by holding the output attached to B0 high for 3 seconds.  Following the walk signal, the caution signal is given by flashing the output every 500 milliseconds for 5 seconds.  The wait signal is finally given by driving the output low until the button is pressed again.
+*/
+
+#define BUTTON A0
+#define SIGNAL B0
+
+unsigned char counter = 0;
+unsigned char flash_count = 0;
+
+unsigned char CW_Clk;
+void TimerISR() {
+   CW_Clk = 1;
+}
+
+enum CW_States { CW_NOWALK, CW_WALK, CW_CAUTION1, CW_CAUTION2 } CW_State;
+
+CW_Tick() {
+   switch(CW_State) { // Transitions
+      case -1:
+         CW_State = CW_NOWALK;
+         break;
+         case CW_NOWALK:
+         if (BUTTON) {
+            CW_State = CW_WALK;
+            counter = 0;
+         }
+         else if (!BUTTON) {
+            CW_State = CW_NOWALK;
+         }
+         break;
+      case CW_WALK:
+         if (counter == 60) {
+            CW_State = CW_CAUTION1;
+            counter = 0;
+         }
+         else if (counter &lt; 60) {
+            CW_State = CW_WALK;
+         }
+         break;
+      case CW_CAUTION1:
+         if (counter == 10) {
+            CW_State = CW_CAUTION2;
+            counter = 0;
+         }
+         else if (counter &lt; 10) {
+            CW_State = CW_CAUTION1;
+         }
+         break;
+      case CW_CAUTION2:
+         if (counter &lt; 10) {
+            CW_State = CW_CAUTION2;
+         }
+         else if (counter == 10 &amp;&amp; flash_count &lt; 4) {
+            CW_State = CW_CAUTION1;
+            counter = 0;
+            flash_count += 1;
+         }
+         else {
+            CW_State = CW_NOWALK;
+            flash_count = 0;
+         }
+         break;
+      default:
+         CW_State = CW_NOWALK;
+   } // Transitions
+
+   switch(CW_State) { // State actions
+      case CW_NOWALK:
+         SIGNAL = 0;
+         break;
+      case CW_WALK:
+         counter += 1;
+         SIGNAL = 1;
+         break;
+      case CW_CAUTION1:
+         counter += 1;
+         SIGNAL = 0;
+         break;
+      case CW_CAUTION2:
+         counter += 1;
+         SIGNAL = 1;
+         break;
+      default: // ADD default behaviour below
+      break;
+   } // State actions
+
+}
+
+int main() {
+
+   const unsigned int CW_Period = 100;
+   TimerSet(CW_Period);
+   TimerOn();
+   
+   CW_State = -1; // Initial state
+   B = 0; // Init outputs
+
+   while(1) {
+      CW_Tick();
+      while(!CW_Clk);
+      CW_Clk = 0;
+   } // while (1)
+} // Main</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="fan" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        Qk1uAwAAAAAAAHYAAAAoAAAAJAAAACYAAAABAAQAAAAAAAAAAADEDgAAxA4AABAAAAAQAAAAAAAA/wAA
+        gP8AgAD/AICA/4AAAP+AAID/gIAA/4CAgP/AwMD/AAD//wD/AP8A/////wAA//8A/////wD/////////
+        /////////////////////wAA////////////////93eP////AAD///////////////h3d3f///8AAP//
+        ////////////h3d3d3///wAA//////////////+Ih3d3d///AAD////4iI///////4iHd3d3//8AAP//
+        d3d3d3f/////iIh3d3f//wAA//d3d3d3d4////+IiHd3d///AAD/h3d3d3d3d/////iId3d3//8AAP93
+        d3d3d3d3j///iIh3d3f//wAA/3d3d3d3d3d///+Ih3d3d///AAD/d3d3d3d3d3j//4iHd3d3//8AAP93
+        d4iIh3d3d///iId3d3f//wAA/4eIiIiIh3d3//+Ih3d3d///AAD//4iIiIiIiIf/+Ih3d3j///8AAP//
+        //////iIiI/4iHd3/////wAA/////////4iHd3iHd3j/////AAD//////////3d3eHd3j/////8AAP//
+        ////////d3d3d4///////wAA//////////h3d3j/////////AAD////////4d3d3f/////////8AAP//
+        ////h3eIh3d4j////////wAA//////d3d4iPh4iIj///////AAD////4d3d3iI/3eIiIiIiIiP8AAP//
+        /4d3d4iI//h3eIiIiIiHfwAA////d3d3iI///3d3eIiIiId/AAD///93d3eIj///d3d3eIiHd38AAP//
+        +Hd3d4iP///3d3d3d3d3fwAA///4d3d4iI////d3d3d3d3d/AAD///h3d3iIj///93d3d3d3d38AAP//
+        +Hd3eIiP////d3d3d3d3fwAA///4d3d4iI////+Hd3d3d3d/AAD///h3d3iIj/////h3d3d3d/8AAP//
+        /3d3d4iP///////4iI///wAA////93d3d4//////////////AAD////3d3d3//////////////8AAP//
+        //+Id4///////////////wAA////////////////////////AAA=
+</value>
+  </data>
+  <data name="PIDBlock" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+        UzRSRTKWaKwAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="RIMS_IOExample_Addition" xml:space="preserve">
+    <value>/* This is a sample program.  You can compile/run it, 
+       modify it first, or just load a different program. */
+
+/* This program interprets the input pins as two sets of
+4-bit unsigned integers: {A3, A2, A1, A0} and {A7, A6, A5, A4}.
+Output pins are updated as quickly as possible to represent
+the sum of these two unsigned integers.*/
+
+#include "rims.h"
+
+char Op1, Op2;
+
+int main()
+{
+   while (1) {
+      Op1 = A &amp; 0x0F;
+      Op2 = (A &amp; 0xF0) &gt;&gt; 4;
+      B = Op1 + Op2;
+   }
+}</value>
+  </data>
+  <data name="RIMS_LibExample_Strings" xml:space="preserve">
+    <value>/* This is a sample program.  You can save/compile/run it, 
+   modify it first, or just load a different program.      */
+   
+/* This program demonstrates the use of the string facilities
+   (strlen, strncmp, memcpy) included in RIMS.h            */
+ 
+#include "rims.h"
+
+#define BUFFER_SIZE 256
+
+int Flag = 0;
+char Message[] = "TestString\n";
+char Buffer[BUFFER_SIZE];
+
+int main()
+{
+   puts(Message);//Display the string once
+   
+   memset(Buffer, 0, BUFFER_SIZE);//'Zero out' receiving buffer
+   memcpy(Buffer, Message, strlen(Message) + 1);
+   //Copy strlen(message) + 1 bytes from 'message' to 'buffer'
+   
+   puts(Buffer);
+   
+   if(strncmp(Message, Buffer, strlen(Buffer)) != 0)
+      puts("The strings don't match!");
+   else
+      puts("The strings match!");
+}
+</value>
+  </data>
+  <data name="RIMS_IOExample_C2F" xml:space="preserve">
+    <value>/* This is a sample program.  You can compile/run it, 
+       modify it first, or just load a different program. */
+
+/* This program interprets the input pins as a temperature in
+Celsius and outputs the corresponding Fahrenheit temperature.*/
+
+#include "rims.h"
+
+#define C_i A
+#define F_o B
+
+int main()
+{
+   while (1) {
+      F_o = ((9 * C_i) / 5) + 32;
+      //Note the order of operations.  If it were written:
+      //   F_o = ((9 / 5) * C_i) + 32
+      //as one would likely try first, integer math would ensure
+      //the output is not what would be expected
+	  
+	  
+      //Also note the 'wrap around' above values of 124C
+   }
+}</value>
+  </data>
+  <data name="RIMS_LibExample_Debug" xml:space="preserve">
+    <value>/* This is a sample program.  You can save/compile/run it, 
+   modify it first, or just load a different program.      */
+   
+/* This program demonstrates the use of the debug output
+   facilities (puts, putc, puti, endl) included in RIMS.h  */
+
+#include "rims.h"
+
+int Flag = 0;
+char Message[] = "Hello! ";
+
+void TimerISR()
+{
+   Flag = 1;
+}
+
+int main()
+{
+   int i = 0;
+   
+   TimerSet(1000);//Set timer period to 1s
+   TimerOn();
+   
+   while (1) {
+      while (!Flag) {}
+      Flag = 0;//Wait for timer period
+
+      puts(Message);//Dump 'message' to debug output
+      
+      for(i = 0; i &lt; strlen(Message); ++i)
+         putc(Message[i]);//Same effect as puts() above
+	  
+	  puti(123);//Dump an integer value to debug output
+	  
+	  //putc('\n'); //Instead, use:
+	  endl();
+   }
+}
+</value>
+  </data>
+  <data name="RIMS_ch9_ThreeLedsTriggered" xml:space="preserve">
+    <value>/*
+	Uses task struct and gcd of task periods to execute two tasks with different periods using the same timer.
+	The tasks are the 3 led and blinking led tasks from before.
+*/
+
+#include "RIMS.h"
+
+volatile unsigned char TimerFlag = 0; 
+
+void TimerISR(void) {
+   TimerFlag = 1;
+}
+
+typedef struct {
+   int state;
+   unsigned long period;
+   unsigned long elapsedTime;
+   int (*TickFct)(int);
+} task_t;
+
+enum BL_States { BL_LEDOFF, BL_LEDON };
+
+int BL_Tick(int state) {
+   switch(state) { // Transitions
+      case -1:
+         state = BL_LEDOFF;
+         break;
+      case BL_LEDOFF:
+         state = BL_LEDON;
+         break;
+      case BL_LEDON:
+         state = BL_LEDOFF;
+         break;
+      default:
+         state = -1;
+         break;
+   }
+
+   switch(state) { // State actions
+      case BL_LEDOFF:
+         B0 = 0;
+         break;
+      case BL_LEDON:
+         B0 = 1;
+         break;
+      default:
+         break;
+   }
+   return state;
+}
+
+enum TL_States { TL_ONE, TL_TWO, TL_THREE };
+
+int TL_Tick(int state) {
+   switch(state) { //Transitions
+      case -1:
+         state = TL_ONE;
+         break;
+      case TL_ONE:
+         state = TL_TWO;
+         break;
+      case TL_TWO:
+         state = TL_THREE;
+         break;
+      case TL_THREE:
+         state = TL_ONE;
+         break;
+      default:
+         state = -1;
+         break;
+      }
+
+   switch(state) { //State actions
+      case TL_ONE:
+         B5 = 1;
+         B6 = 0;
+         B7 = 0;
+         break;
+      case TL_TWO:
+         B5 = 0;
+         B6 = 1;
+         B7 = 0;
+         break;
+      case TL_THREE:
+         B5 = 0;
+         B6 = 0;
+         B7 = 1;
+         break;
+      default:
+         break;
+   }
+   return state;
+}
+
+int main()
+{
+   const unsigned long BL_period = 1500;
+   const unsigned long TL_period = 500;
+
+   const unsigned long GCD = 500;
+
+   unsigned char i; // Index for scheduler's for loop
+
+   static task_t        task1,  task2;
+   task_t *tasks[] = { &amp;task1, &amp;task2 };
+   const unsigned short numTasks = sizeof(tasks) / sizeof(task_t*);
+
+   task1.state       = -1;
+   task1.period      = BL_period;
+   task1.elapsedTime = BL_period;
+   task1.TickFct     = &amp;BL_Tick;
+   
+   task2.state       = -1;
+   task2.period      = TL_period;
+   task2.elapsedTime = TL_period;
+   task2.TickFct     = &amp;TL_Tick;
+
+   TimerSet(GCD);
+   TimerOn();
+   
+   while(1) {
+      for ( i = 0; i &lt; numTasks; ++i ) {
+         if ( tasks[i]-&gt;elapsedTime == tasks[i]-&gt;period ) { 
+            // Task is ready to tick, so call its tick function
+            tasks[i]-&gt;state = tasks[i]-&gt;TickFct(tasks[i]-&gt;state);
+            tasks[i]-&gt;elapsedTime = 0; // Reset the elapsed time
+         }
+         tasks[i]-&gt;elapsedTime += GCD; // Account for below wait
+      }
+      while(!TimerFlag); // Wait for next timer tick
+      TimerFlag = 0;
+   }
+}</value>
+  </data>
+  <data name="RIMS_UARTExample_Messenger" xml:space="preserve">
+    <value>/*
+This code was automatically generated using the Riverside-Irvine State machine Builder tool
+Version 2.1 --- 6/28/2010 13:23:10 PST
+*/
+
+#include "rims.h"
+
+#define SIZE 29
+
+char* message = "UCR Microcontroller Simulator";
+int i = 0;
+
+
+unsigned char MES_Clk;
+void TimerISR() {
+   MES_Clk = 1;
+}
+
+unsigned char MES_Rx_Flag = 0;
+void RxISR() {
+   MES_Rx_Flag = 1;
+}
+
+enum MES_States { MES_Wait, MES_Transmit, MES_Increment } MES_State;
+
+MES_Tick() {
+   switch(MES_State) { // Transitions
+      case -1:
+         MES_State = MES_Wait;
+         break;
+         case MES_Wait:
+         if (TxReady) {
+            MES_State = MES_Transmit;
+         }
+         else if (!TxReady) {
+            MES_State = MES_Wait;
+         }
+         break;
+      case MES_Transmit:
+         if (1) {
+            MES_State = MES_Increment;
+         }
+         break;
+      case MES_Increment:
+         if (1) {
+            MES_State = MES_Wait;
+         }
+         break;
+      default:
+         MES_State = MES_Wait;
+   } // Transitions
+
+   switch(MES_State) { // State actions
+      case MES_Wait:
+         break;
+      case MES_Transmit:
+         T = message[i];
+         B = message[i];
+         break;
+      case MES_Increment:
+         if ( i &lt; SIZE - 1 ) ++i;
+         else i = 0;
+         break;
+      default: // ADD default behaviour below
+      break;
+   } // State actions
+
+}
+
+int main() {
+
+   const unsigned int MES_Period = 200;
+   TimerSet(MES_Period);
+   TimerOn();
+   UARTOn();
+
+
+   MES_State = -1; // Initial state
+   B = 0; // Init outputs
+
+   while(1) {
+      MES_Tick();
+      while(!MES_Clk);
+      MES_Clk = 0;
+   } // while (1)
+} // Main</value>
+  </data>
+  <data name="RIMS_ch2_ParkingLot" xml:space="preserve">
+    <value>/*
+        A parking lot has eight parking spaces, each with a sensor connected to input A. The following program sets B to the number of occupied spaces, by counting the number of 1s using the GetBit function:
+*/
+#include "RIMS.h"
+
+unsigned char GetBit(unsigned char x, unsigned char k) {
+   return ((x &amp; (0x01 &lt;&lt; k)) != 0);
+}
+
+int main()
+{
+   unsigned char i;
+   unsigned char cnt;
+   while (1) {
+      cnt=0;
+      for (i=0; i&lt;8; i++) {
+         if (GetBit(A, i)) { //each bit of A is connected to a sensor, getting the value of each bit gives us the amount of occupied spaces.
+            cnt++;
+         }
+      }
+      B = cnt; 
+   }
+}</value>
+  </data>
+  <data name="RIMS_LibExample_Misc" xml:space="preserve">
+    <value>/* This is a sample program.  You can save/compile/run it, 
+   modify it first, or just load a different program.      */
+   
+/* This program demonstrates the use of miscellaneous
+   library functions included in RIMS.h  */
+   
+#include "rims.h"
+
+//Note the use of TimerXXX() functions, but the lack of TimerISR().
+//When this is the case, TimerISR() is assumed to do nothing
+
+int main()
+{
+   int i = 0;
+   int PseudoRandom;
+   
+   ASSERT(A0 == 0);
+   
+   TimerSet(250);
+   TimerOn();//Set an arbitrary timer period --
+             //Short enough that it's likely this period
+             //will have been exhausted many times by the time
+             //the timer is read below
+
+   puts("Please toggle A0 to ON...\n");
+   
+   while(!A0) {}//wait for the user to toggle the A0 switch
+   PseudoRandom = TimerRead();//use the current timer tick as
+                               //a source of entropy
+
+   TimerOff();//not needed any more
+   
+   srand(PseudoRandom);//seed the random number generator with
+                        //this pseudo-random value
+   
+   for(i = 0; i &lt; 9; ++i){
+	  int Random = rand();//rand() returns an unsigned integer
+                           //in [0, 32767]
+      Random -= 16384;//~50% chance of being negative IF rand()
+                      //were statistically random (it's NOT)
+      puti(Random);
+	  puts(" is: ");
+      if(abs(Random) != Random)
+         puts("Negative\n");
+      else
+         puts("Positive\n");
+   }   
+}
+</value>
+  </data>
+  <data name="EULA" xml:space="preserve">
+    <value>{\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Arial;}}
+{\*\generator Msftedit 5.41.21.2509;}\viewkind4\uc1\pard\sa200\sl276\slmult1\lang9\fs22 END USER LICENSE AGREEMENT\par
+Software License Agreement for RI Toolkit\par
+IMPORTANT- PLEASE READ CAREFULLY: BY INSTALLING THE SOFTWARE (AS DEFINED BELOW), COPYING THE SOFTWARE AND/OR CLICKING ON THE 'ACCEPT' BUTTON BELOW, YOU (EITHER ON BEHALF OF YOURSELF AS AN INDIVIDUAL OR ON BEHALF OF AN ENTITY AS ITS AUTHORIZED REPRESENTATIVE) AGREE TO ALL OF THE TERMS OF THIS END USER LICENSE AGREEMENT ('AGREEMENT') REGARDING YOUR USE OF THE SOFTWARE.  IF YOU DO NOT AGREE WITH ALL OF THE TERMS OF THIS AGREEMENT, CLICK ON THE 'CANCEL' BUTTON. THIS WILL CANCEL THE INSTALLATION.\par
+1. GRANT OF LICENSE: Subject to the terms below, University of California hereby grants you a non-exclusive, non-transferable license to install and to use RI Toolkit ('Software') for a limited amount of time, which may be revoked under the sole discretion of the University of California at any time.\par
+Under this license, you may: (i) install and use the Software on any number of computers for your personal, non-commercial, internal use (ii) copy the Software for back-up or archival purposes. (iii)You may not distribute the software to others without first obtaining the required licenses, where applicable.\par
+Whether you are licensing the Software as an individual or on behalf of an entity, you may not: (i) reverse engineer, decompile, or disassemble the Software or attempt to discover the source code; (ii) modify, or create derivative works based upon, the Software in whole or in part without the express written consent of University of California; (iii) distribute copies of the Software; (iv) remove any proprietary notices or labels on the Software; (v) resell, lease, rent, transfer, sublicense, or otherwise transfer rights to the Software; (vi) use the Software for demonstration purposes unless either the University of California has expressly granted you the right or the demonstration is given in a classroom setting where the book Programming Embedded Systems by Frank Vahid and Tony Givargis is a required component of the course.\par
+2. TITLE: You acknowledge that no title to the intellectual property in the Software is transferred to you. Title, ownership, rights, and intellectual property rights in and to the Software shall remain that of University of California . The Software is protected by copyright and patent laws of the United States and international treaties. \par
+3. DISCLAIMER OF WARRANTY: \par
+YOU AGREE THAT University of California HAS MADE NO EXPRESS WARRANTIES, ORAL OR WRITTEN, TO YOU REGARDING THE PRODUCTS AND THAT THE PRODUCTS ARE BEING PROVIDED TO YOU 'AS IS' WITHOUT WARRANTY OF ANY KIND.  University of California DISCLAIMS ANY AND ALL OTHER WARRANTIES, WHETHER EXPRESSED, IMPLIED, OR STATUTORY. YOUR RIGHTS MAY VARY DEPENDING ON THE STATE IN WHICH YOU LIVE.\par
+ University of California SHALL NOT BE LIABLE FOR INDIRECT, INCIDENTAL, SPECIAL, COVER, RELIANCE, OR CONSEQUENTIAL DAMAGES RESULTING FROM THE USE OF THIS PRODUCT.\par
+5. LIMITATION OF LIABILITY: You use this program solely at your own risk.\par
+IN NO EVENT SHALL University of California BE LIABLE TO YOU FOR ANY DAMAGES, INCLUDING BUT NOT LIMITED TO ANY LOSS, OR OTHER INCIDENTAL, INDIRECT OR CONSEQUENTIAL DAMAGES OF ANY KIND ARISING OUT OF THE USE OF THE SOFTWARE, EVEN IF University of California HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. IN NO EVENT WILL University of California BE LIABLE FOR ANY CLAIM, WHETHER IN CONTRACT, TORT, OR ANY OTHER THEORY OF LIABILITY, EXCEEDING THE COST OF THE SOFTWARE. THIS LIMITATION SHALL APPLY TO CLAIMS OF PERSONAL INJURY TO THE EXTENT PERMITTED BY LAW. \par
+6. TERMINATION: This Agreement shall terminate automatically if you fail to comply with the limitations described in this Agreement. No notice shall be required to effectuate such termination. Upon termination, you must remove and destroy all copies of the Software. \par
+7. MISCELLANEOUS:\par
+Severability.  \par
+In the event of invalidity of any provision of this Agreement, the parties agree that such invalidity shall not affect the validity of the remaining portions of this Agreement. \par
+Export.  \par
+You agree that you will not export or re-export the Software outside of the jurisdiction in which you obtained it without the appropriate United States or foreign government licenses.\par
+Governing Law.  \par
+This Agreement will be governed by the laws of the State of California as they are applied to agreements between California residents entered into and to be performed entirely within California. The United Nations Convention on Contracts for the International Sale of Goods is specifically disclaimed.\par
+Entire Agreement.  \par
+You agree that this is the entire agreement between you and University of California, which supersedes any prior agreement, whether written or oral, and all other communications between University of California and you relating to the subject matter of this Agreement. \par
+Reservation of rights.  \par
+All rights not expressly granted in this Agreement are reserved by University of California.\par
+}
+&#x0;</value>
+  </data>
+</root>

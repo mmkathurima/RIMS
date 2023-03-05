@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+<resheader name="resmimetype"><value>text/microsoft-resx</value></resheader><resheader name="version"><value>1.3</value></resheader><resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader><resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader><data name="textBox1.Text"><value>sb $1, offset($2)          # Store contents of $1 as a byte in memory location whose value is (contents of $2 + offset)
+sw $1, offset($2)         # Store contents of $1 as a word(4 bytes) in memory location whose value is (contents of $2 + offset)
+usw $1, offset($2)       # Store contents of $1 as an unsigned word(4 bytes) in memory location whose value is (contents of $2 + offset)
+la $1, label                  # Load value stored in the memory location that label points to into $1, if label is just a number that value is loaded into $1 directly
+lb $1, offset($2)          # Load contents(as a byte) of memory location whose value is (contents of $2 + offset) into $1
+lh $1, offset($2)          # Load contents(as a half word, 2 bytes) of memory location whose value is (contents of $2 + offset) into $1
+ulh $1, offset($2)        # Load contents(as an unsigned half word, 2 bytes) of memory location whose value is (contents of $2 + offset) into $1
+lw $1, offset($2)         # Load contents(as a word, 4 bytes) of memory location whose value is (contents of $2 + offset) into $1
+ulw $1, offset($2)       # Load contents(as an unsigned word, 4 bytes) of memory location whose value is (contents of $2 + offset) into $1
+lbu $1, offset($2)       # Load contents(as an unsigned byte) of memory location whose value is (contents of $2 + offset) into $1
+lhu $1, offset($2)       # Load contents(as an unsigned half word, 2 bytes) of memory location whose value is (contents of $2 + offset) into $1
+ulhu $1, offset($2)     # Load contents(as an unsigned half word, 2 bytes) of memory location whose value is (contents of $2 + offset) into $1
+div $1, $2, $3            # Divides the value of $2 by the value of $3 and stores the result in $1
+divu $1, $2, $3          # Divides the unsigned value of $2 by the unsigned value of $3 and stores the result in $1
+rem $1, $2, $3           # Divides the value of $2 by the value of $3 and stores the remainder in $1
+remu $1, $2, $3         # Divides the unsigned value of $2 by the unsigned value of $3 and stores the remainder in $1
+sub $1, $2, $3           # Subtracts the value of $2 by the value of $3 and stores the result in $1
+subu $1, $2, $3         # Subtracts the value of $2 by the value of $3 and stores the result in $1
+mul $1, $2, $3          # Multiplies the value of $2 by the value of $3 and stores the result in $1
+negu $1, $2              # Negates the value of $2 and stores the result in $1
+addu $1, $2, $3       # Adds the unsigned value of $2 to the value of $3 and stores the result in $1
+and $1, $2, $3         # Bitwise logical and of the value of $2 with the value of $3 and stores the result in $1
+andi $1, $2, imm      # Bitwise logical and of the value of $2 with the immediate value imm and stores the result in $1
+or $1, $2, $3            # Bitwise logical or of the value of $2 with the value of $3 and stores the result in $1
+xor $1, $2, $3          # Bitwise logical exclusive or of the value of $2 with the value of $3 and stores the result in $1
+sll $1, $2, $3           # Shifts the value of $2 to the left value of $3 times
+sra $1, $2, $3         # Shifts the value of $2 to the right value of $3 times(arithemetic shifts in signed bit)
+srl $1, $2, $3          # Shifts the value of $2 to the right value of $3 times
+j label                     # Loads pc(next instruction to be executed) with the value in memory location label
+jr $1                       # Loads pc(next instruction to be executed) with the value of $1
+beq $1, $2, label  # Loads pc(next instruction to be executed) with the value (pc+offset) where offset is computed by taking the difference of location label with the current pc if the value of $1 is equal to the value of $2
+bne $1, $2, label  # Loads pc(next instruction to be executed) with the value (pc+offset) where offset is computed by taking the difference of location label with the current pc if the value of $1 is not equal to the value of $2
+bge $1, $2, label  # Loads pc(next instruction to be executed) with the value (pc+offset) where offset is computed by taking the difference of location label with the current pc if the value of $1 is greater or equal to the value of $2
+bgez $1, label      # Loads pc(next instruction to be executed) with the value (pc+offset) where offset is computed by taking the difference of location label with the current pc if the value of $1 is greater or equal to 0
+bgt $1, $2, label  # Loads pc(next instruction to be executed) with the value (pc+offset) where offset is computed by taking the difference of location label with the current pc if the value of $1 is greater than the value of $2
+bgtu $1, $2, label # Loads pc(next instruction to be executed) with the value (pc+offset) where offset is computed by taking the difference of location label with the current pc if the unsigned value of $1 is greater than the unsigned value of $2
+ble $1, $2, label   # Loads pc(next instruction to be executed) with the value (pc+offset) where offset is computed by taking the difference of location label with the current pc if the value of $1 is less than or equal to the value of $2
+bleu $1, $2, label # Loads pc(next instruction to be executed) with the value (pc+offset) where offset is computed by taking the difference of location label with the current pc if the unsigned value of $1 is less than or equal to the unsigned value of $2
+blt $1, $2, label   # Loads pc(next instruction to be executed) with the value (pc+offset) where offset is computed by taking the difference of location label with the current pc if the value of $1 is less than the value of $2
+bltu $1, $2, label # Loads pc(next instruction to be executed) with the value (pc+offset) where offset is computed by taking the difference of location label with the current pc if the unsigned value of $1 is less than the unsigned value of $2
+jal label                # Loads pc(next instruction to be executed) with the value in memory location label and stores the return address in $ra
+jalr $1                   # Loads pc(next instruction to be executed) with the value of $1 and stores the return address in $ra
+not $1, $2            # Logical not of the value of $2 and stores the result in $1
+b label                 # Loads pc(next instruction to be executed) with the value in memory location label
+br $1                    # Loads pc(next instruction to be executed) with the value of $1
+</value></data>
+  </root>

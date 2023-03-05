@@ -1,0 +1,215 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+	<PropertyGroup>
+		<AssemblyName>RIMS</AssemblyName>
+		<GenerateAssemblyInfo>False</GenerateAssemblyInfo>
+		<OutputType>WinExe</OutputType>
+		<UseWindowsForms>True</UseWindowsForms>
+		<UseWPF>true</UseWPF>
+		<TargetFramework>net6.0-windows</TargetFramework>
+		<PlatformTarget>x86</PlatformTarget>
+	</PropertyGroup>
+	<PropertyGroup>
+		<LangVersion>10.0</LangVersion>
+		<AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+	</PropertyGroup>
+	<PropertyGroup>
+		<ApplicationIcon>app.ico</ApplicationIcon>
+		<RootNamespace />
+	</PropertyGroup>
+	<ItemGroup>
+		<None Remove="RIMS_V2.songs.song1.wav" />
+		<None Remove="RIMS_V2.songs.song2.wav" />
+		<None Remove="RIMS_V2.songs.song3.wav" />
+		<None Remove="RIMS_V2.songs.song4.wav" />
+		<None Remove="RIMS_V2.songs.song5.wav" />
+		<None Remove="RIMS_V2.songs.song6.wav" />
+		<None Remove="RIMS_V2.songs.song7.wav" />
+		<None Remove="RIMS_V2.songs.song0.wav" />
+		<None Remove="RIMS_V2.resources.RIMS_ch5_GlitchFilter_sample_tv.txt" />
+		<None Remove="RIMS_V2.resources.RIMS_ch5_DoorBell_sample_tv.txt" />
+		<None Remove="RIMS_V2.resources.RIMS_ch2_ParkingLot_sample_tv.txt" />
+		<None Remove="RIMS_V2.resources.RIMS_ch3_ApplauseMeter_Mealy_sample_tv.txt" />
+		<None Remove="RIMS_V2.resources.RIMS_ch7_LedShowMultiPeriod_sample_tv.txt" />
+		<None Remove="RIMS_V2.resources.RIMS_ch6_LedShow_sample_tv.txt" />
+		<None Remove="RIMS_V2.resources.RIMS_ch9_ThreeLedsTriggered_sample_tv.txt" />
+		<None Remove="RIMS_V2.resources.RIMS_ch6_MotionLamp_sample_tv.txt" />
+		<None Remove="RIMS_V2.resources.RIMS_ch3_Latch_sample_tv.txt" />
+		<None Remove="RIMS_V2.resources.RIMS_ch12_PID_sample_tv.txt" />
+		<None Remove="RIMS_V2.resources.RIMS_ch3_ApplauseMeter_Moore_sample_tv.txt" />
+		<None Remove="RIMS_V2.resources.RIMS_ch5_Pwm_sample_tv.txt" />
+		<None Remove="RIMS_V2.resources.RIMS_ProducerConsumer_multi.c" />
+		<None Remove="RIMS_V2.resources.RIMS_LibExample_Misc.c" />
+		<None Remove="RIMS_V2.resources.ASMtemplate.c" />
+		<None Remove="RIMS_V2.resources.RIMS_TimerExample_Basic.c" />
+		<None Remove="RIMS_V2.resources.RIMS_IOExample_Addition.c" />
+		<None Remove="RIMS_V2.resources.RIMS_ch5_DoorBell_sample.c" />
+		<None Remove="RIMS_V2.resources.RIMS_ch3_Latch_sample.c" />
+		<None Remove="RIMS_V2.resources.RIMS_ch3_ApplauseMeter_Mealy_sample.c" />
+		<None Remove="RIMS_V2.resources.RIMS_ch6_LedShow_sample.c" />
+		<None Remove="RIMS_V2.resources.RIMS_ch5_Pwm_sample.c" />
+		<None Remove="RIMS_V2.resources.RIMS_UARTExample_Messenger.c" />
+		<None Remove="RIMS_V2.resources.RIMS_ch9_ThreeLedsTriggered_sample.c" />
+		<None Remove="RIMS_V2.resources.RIMS_ch6_MotionLamp_sample.c" />
+		<None Remove="RIMS_V2.resources.RIMS_ch7_LedShow_sample.c" />
+		<None Remove="RIMS_V2.resources.RIMS_TimerExample_Toggle.c" />
+		<None Remove="RIMS_V2.resources.RIMS_CrosswalkExample.c" />
+		<None Remove="RIMS_V2.resources.RIMS_Example_other.c" />
+		<None Remove="RIMS_V2.resources.RIMS_ch5_SpeakerProject_sample.c" />
+		<None Remove="RIMS_V2.resources.RIMS_UARTExample_Echo.c" />
+		<None Remove="RIMS_V2.resources.RIMS_sample_code.c" />
+		<None Remove="RIMS_V2.resources.RIMS_ch5_GlitchFilter_sample.c" />
+		<None Remove="RIMS_V2.resources.RIMS_ch3_ApplauseMeter_Moore_sample.c" />
+		<None Remove="RIMS_V2.resources.RIMS_ch12_PID_sample.c" />
+		<None Remove="RIMS_V2.resources.RIMS_ch2_ParkingLot_sample.c" />
+		<None Remove="RIMS_V2.resources.RIMS_LibExample_Strings.c" />
+		<None Remove="RIMS_V2.resources.RIMS_LibExample_Debug.c" />
+		<None Remove="RIMS_V2.resources.RIMS_Frequency_Reader.c" />
+		<None Remove="RIMS_V2.resources.RIMS_ch12_PID_sample_extIOcode.c" />
+		<None Remove="RIMS_V2.resources.RIMS_IOExample_C2F.c" />
+		<None Remove="RIMS_V2.resources.RIMS_ch7_LedShowMultiPeriod_sample.c" />
+		<None Remove="RIMS_V2.led_on.png" />
+		<None Remove="RIMS_V2.switch_on_dis.png" />
+		<None Remove="RIMS_V2.switch_off_dis.png" />
+		<None Remove="RIMS_V2.switch_on.png" />
+		<None Remove="RIMS_V2.music_on.png" />
+		<None Remove="RIMS_V2.led_off.png" />
+		<None Remove="RIMS_V2.button_out_dis.png" />
+		<None Remove="RIMS_V2.PIDBlock.png" />
+		<None Remove="RIMS_V2.button_out.png" />
+		<None Remove="RIMS_V2.button_in.png" />
+		<None Remove="RIMS_V2.switch_off.png" />
+		<None Remove="RIMS_V2.button_in_dis.png" />
+		<None Remove="RIMS_V2.music_off.png" />
+		<None Remove="RIMS_V2.resources.ASMUserTemplate.s" />
+		<None Remove="RIMS_V2.resources.EULA.rtf" />
+		<None Remove="RIMS_V2.resources.fan.bmp" />
+		<COMReference Include="WMPLib">
+			<WrapperTool>tlbimp</WrapperTool>
+			<VersionMinor>0</VersionMinor>
+			<VersionMajor>1</VersionMajor>
+			<Guid>6bf52a50-394a-11d3-b153-00c04f79faa6</Guid>
+			<Lcid>0</Lcid>
+			<Isolated>false</Isolated>
+			<EmbedInteropTypes>true</EmbedInteropTypes>
+		</COMReference>
+		<Content Include="app.ico" />
+		<EmbeddedResource Include="RIMS_V2.songs.song1.wav" />
+		<EmbeddedResource Include="RIMS_V2.songs.song2.wav" />
+		<EmbeddedResource Include="RIMS_V2.songs.song3.wav" />
+		<EmbeddedResource Include="RIMS_V2.songs.song4.wav" />
+		<EmbeddedResource Include="RIMS_V2.songs.song5.wav" />
+		<EmbeddedResource Include="RIMS_V2.songs.song6.wav" />
+		<EmbeddedResource Include="RIMS_V2.songs.song7.wav" />
+		<EmbeddedResource Include="RIMS_V2.songs.song0.wav" />
+		<EmbeddedResource Include="RIMS_V2.resources.RIMS_ch5_GlitchFilter_sample_tv.txt" />
+		<EmbeddedResource Include="RIMS_V2.resources.RIMS_ch5_DoorBell_sample_tv.txt" />
+		<EmbeddedResource Include="RIMS_V2.resources.RIMS_ch2_ParkingLot_sample_tv.txt" />
+		<EmbeddedResource Include="RIMS_V2.resources.RIMS_ch3_ApplauseMeter_Mealy_sample_tv.txt" />
+		<EmbeddedResource Include="RIMS_V2.resources.RIMS_ch7_LedShowMultiPeriod_sample_tv.txt" />
+		<EmbeddedResource Include="RIMS_V2.resources.RIMS_ch6_LedShow_sample_tv.txt" />
+		<EmbeddedResource Include="RIMS_V2.resources.RIMS_ch9_ThreeLedsTriggered_sample_tv.txt" />
+		<EmbeddedResource Include="RIMS_V2.resources.RIMS_ch6_MotionLamp_sample_tv.txt" />
+		<EmbeddedResource Include="RIMS_V2.resources.RIMS_ch3_Latch_sample_tv.txt" />
+		<EmbeddedResource Include="RIMS_V2.resources.RIMS_ch12_PID_sample_tv.txt" />
+		<EmbeddedResource Include="RIMS_V2.resources.RIMS_ch3_ApplauseMeter_Moore_sample_tv.txt" />
+		<EmbeddedResource Include="RIMS_V2.resources.RIMS_ch5_Pwm_sample_tv.txt" />
+		<EmbeddedResource Include="RIMS_V2.resources.RIMS_ProducerConsumer_multi.c" />
+		<EmbeddedResource Include="RIMS_V2.resources.RIMS_LibExample_Misc.c" />
+		<EmbeddedResource Include="RIMS_V2.resources.ASMtemplate.c" />
+		<EmbeddedResource Include="RIMS_V2.resources.RIMS_TimerExample_Basic.c" />
+		<EmbeddedResource Include="RIMS_V2.resources.RIMS_IOExample_Addition.c" />
+		<EmbeddedResource Include="RIMS_V2.resources.RIMS_ch5_DoorBell_sample.c" />
+		<EmbeddedResource Include="RIMS_V2.resources.RIMS_ch3_Latch_sample.c" />
+		<EmbeddedResource Include="RIMS_V2.resources.RIMS_ch3_ApplauseMeter_Mealy_sample.c" />
+		<EmbeddedResource Include="RIMS_V2.resources.RIMS_ch6_LedShow_sample.c" />
+		<EmbeddedResource Include="RIMS_V2.resources.RIMS_ch5_Pwm_sample.c" />
+		<EmbeddedResource Include="RIMS_V2.resources.RIMS_UARTExample_Messenger.c" />
+		<EmbeddedResource Include="RIMS_V2.resources.RIMS_ch9_ThreeLedsTriggered_sample.c" />
+		<EmbeddedResource Include="RIMS_V2.resources.RIMS_ch6_MotionLamp_sample.c" />
+		<EmbeddedResource Include="RIMS_V2.resources.RIMS_ch7_LedShow_sample.c" />
+		<EmbeddedResource Include="RIMS_V2.resources.RIMS_TimerExample_Toggle.c" />
+		<EmbeddedResource Include="RIMS_V2.resources.RIMS_CrosswalkExample.c" />
+		<EmbeddedResource Include="RIMS_V2.resources.RIMS_Example_other.c" />
+		<EmbeddedResource Include="RIMS_V2.resources.RIMS_ch5_SpeakerProject_sample.c" />
+		<EmbeddedResource Include="RIMS_V2.resources.RIMS_UARTExample_Echo.c" />
+		<EmbeddedResource Include="RIMS_V2.resources.RIMS_sample_code.c" />
+		<EmbeddedResource Include="RIMS_V2.resources.RIMS_ch5_GlitchFilter_sample.c" />
+		<EmbeddedResource Include="RIMS_V2.resources.RIMS_ch3_ApplauseMeter_Moore_sample.c" />
+		<EmbeddedResource Include="RIMS_V2.resources.RIMS_ch12_PID_sample.c" />
+		<EmbeddedResource Include="RIMS_V2.resources.RIMS_ch2_ParkingLot_sample.c" />
+		<EmbeddedResource Include="RIMS_V2.resources.RIMS_LibExample_Strings.c" />
+		<EmbeddedResource Include="RIMS_V2.resources.RIMS_LibExample_Debug.c" />
+		<EmbeddedResource Include="RIMS_V2.resources.RIMS_Frequency_Reader.c" />
+		<EmbeddedResource Include="RIMS_V2.resources.RIMS_ch12_PID_sample_extIOcode.c" />
+		<EmbeddedResource Include="RIMS_V2.resources.RIMS_IOExample_C2F.c" />
+		<EmbeddedResource Include="RIMS_V2.resources.RIMS_ch7_LedShowMultiPeriod_sample.c" />
+		<EmbeddedResource Include="RIMS_V2.led_on.png" />
+		<EmbeddedResource Include="RIMS_V2.switch_on_dis.png" />
+		<EmbeddedResource Include="RIMS_V2.switch_off_dis.png" />
+		<EmbeddedResource Include="RIMS_V2.switch_on.png" />
+		<EmbeddedResource Include="RIMS_V2.music_on.png" />
+		<EmbeddedResource Include="RIMS_V2.led_off.png" />
+		<EmbeddedResource Include="RIMS_V2.button_out_dis.png" />
+		<EmbeddedResource Include="RIMS_V2.PIDBlock.png" />
+		<EmbeddedResource Include="RIMS_V2.button_out.png" />
+		<EmbeddedResource Include="RIMS_V2.button_in.png" />
+		<EmbeddedResource Include="RIMS_V2.switch_off.png" />
+		<EmbeddedResource Include="RIMS_V2.button_in_dis.png" />
+		<EmbeddedResource Include="RIMS_V2.music_off.png" />
+		<EmbeddedResource Include="RIMS_V2.resources.ASMUserTemplate.s" />
+		<EmbeddedResource Include="RIMS_V2.resources.EULA.rtf" />
+		<EmbeddedResource Include="RIMS_V2.resources.fan.bmp" />
+	</ItemGroup>
+	<ItemGroup>
+		<Reference Include="PresentationCore">
+			<HintPath>..\..\..\..\..\..\..\Program Files\dotnet\packs\Microsoft.WindowsDesktop.App.Ref\6.0.14\ref\net6.0\PresentationCore.dll</HintPath>
+		</Reference>
+		<Reference Include="ScintillaNet">
+			<HintPath>..\..\..\..\..\Desktop\Coursework\4.2\Embedded Systems\RIMS\bin\ScintillaNet.dll</HintPath>
+		</Reference>
+		<Reference Include="ShellControl">
+			<HintPath>..\..\ShellControl\bin\Debug\net20\ShellControl.dll</HintPath>
+		</Reference>
+		<Reference Include="System.Core" />
+		<Reference Include="System.Design" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers" Version="0.4.355802">
+			<PrivateAssets>all</PrivateAssets>
+		</PackageReference>
+		<PackageReference Include="System.Windows.Forms.DataVisualization" Version="1.0.0-prerelease.20110.1" />
+		<PackageReference Include="Microsoft.Windows.Compatibility" Version="7.0.0" />
+	</ItemGroup>
+	<ItemGroup>
+		<Compile Update="Properties\Resource.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>Resource.resx</DependentUpon>
+		</Compile>
+		<Compile Update="Properties\Resources.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>Resources.resx</DependentUpon>
+		</Compile>
+		<Compile Update="RIMS_V2.MainForm.Designer.cs">
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		  <DependentUpon>RIMS_V2.MainForm.resx</DependentUpon>
+		</Compile>
+	</ItemGroup>
+	<ItemGroup>
+		<EmbeddedResource Update="Properties\Resource.resx">
+			<Generator>ResXFileCodeGenerator</Generator>
+			<LastGenOutput>Resource.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+		<EmbeddedResource Update="Properties\Resources.resx">
+			<Generator>ResXFileCodeGenerator</Generator>
+			<LastGenOutput>Resources.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+		<EmbeddedResource Update="RIMS_V2.MainForm.resx">
+		  <Generator>PublicResXFileCodeGenerator</Generator>
+		  <LastGenOutput>RIMS_V2.MainForm.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+	</ItemGroup>
+</Project>

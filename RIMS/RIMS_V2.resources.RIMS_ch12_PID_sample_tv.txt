@@ -1,0 +1,3 @@
+b00000111
+wait 180 s
+generatetd

@@ -1,0 +1,13 @@
+b00000000
+wait 1.5 s
+assert 0
+b00000001
+wait 1.5 s
+assert 0
+b00000011
+wait 1.5 s
+assert 1
+b00000010
+wait 1.5 s
+assert 1
+generatetd

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+<resheader name="resmimetype"><value>text/microsoft-resx</value></resheader><resheader name="version"><value>1.3</value></resheader><resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader><resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader><data name="up_arrow" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj0yLjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABVTeXN0ZW0uRHJhd2luZy5CaXRtYXABAAAABERhdGEHAgIAAAAJAwAAAA8DAAAArQEAAAKJUE5HDQoaCgAAAA1JSERSAAAADgAAABEIBgAAAO3InZ8AAAAEZ0FNQQAAsY8L/GEFAAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAA7dEVYdENvbW1lbnQARWRpdGVkIGJ5IFBhdWwgU2hlcm1hbiBmb3IgV1BDbGlwYXJ0LCBQdWJsaWMgRG9tYWlucCd6AAAAAPFJREFUOE/NkjGqhDAQhgPaKXoAWy+grZ2lrSezsBEUxEIEsVERBMFLiHuFhb3DPH4Xw4YM++BVr/hIZv75gpKI1/NBHFmWUZ7nbAZYsSgKEkJcVFWl5UATy7KU0k1d18oMUMSmaTTppm1bXuy6jhU+6fteFYdhYAc5xnF8i9u2aaHneXLv+76SgX3fsarN8zwpjmNZp2lKx3EoMxe2bctiXdfrM8IwlD0cgh6yu+e6LgnLsq5iWRb545wIMIOe4zhYBc3zLMNvIpim6Z3hGj4D8E0EuBb2yf0mgn8iBkHwNzGKIjJNkwzDoCRJtPz1fNAPPJxZqbqnQ4gAAAAASUVORK5CYIIL</value></data><data name="RIBS_ch5_Pwm" type="System.Resources.ResXNullRef, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><value /></data>
+  <data name="down_arrow" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj0yLjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABVTeXN0ZW0uRHJhd2luZy5CaXRtYXABAAAABERhdGEHAgIAAAAJAwAAAA8DAAAAgQEAAAKJUE5HDQoaCgAAAA1JSERSAAAADgAAABEIBgAAAO3InZ8AAAAEZ0FNQQAAsY8L/GEFAAAAO3RFWHRDb21tZW50AEVkaXRlZCBieSBQYXVsIFNoZXJtYW4gZm9yIFdQQ2xpcGFydCwgUHVibGljIERvbWFpbnAnegAAAADxSURBVDhPzZIxCoQwEEUD2il6AFsvoK2dpa0ns7ARFMRCBLFREQTBS4heQfAOs0wkYbOJu+0WD5P5/4EwIdd5wCdBEICu66BpGkRRJOWIUvQ8DwghlDAMpRxRir7v/6PYNI00/CW2bYsZgXEcheCbOAzDnRmGQQ/TNP0UsYMzy7KAmKbJS/M8P4qYsZlt2/i9L4x932mZ3eM4hm3bhA5lWRZp6DgOP7uuK2TIuq73Orquk8In+r6nv873iGtRFd/BNbC+8ACqqlIKSF3XvIdILyfPc0kqy1LoIMonl2UZl4qikHJEKSJJkkCapsrsOg94Ac1XWalvprrSAAAAAElFTkSuQmCCCw==</value></data><data name="RIBS_ch5_SpeakerProject" type="System.Resources.ResXNullRef, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><value /></data>
+  <data name="RIBS_ch3_ApplauseMeter_Mealy" type="System.Resources.ResXNullRef, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><value /></data>
+  <data name="RIBS_ch3_ApplauseMeter_Moore" type="System.Resources.ResXNullRef, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><value /></data>
+  <data name="RIBS_ch3_Latch" type="System.Resources.ResXNullRef, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><value /></data>
+  <data name="default_project" type="System.Resources.ResXNullRef, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><value /></data>
+  <data name="RIBS_ch6_MotionLamp" type="System.Resources.ResXNullRef, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><value /></data>
+  <data name="RIBS_ch5_GlitchFilter" type="System.Resources.ResXNullRef, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><value /></data>
+  <data name="RIBS_ch6_LedShow" type="System.Resources.ResXNullRef, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"><value /></data>
+  </root>

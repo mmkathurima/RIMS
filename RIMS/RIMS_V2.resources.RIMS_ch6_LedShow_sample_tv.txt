@@ -1,0 +1,15 @@
+wait 50 ms
+assert 0x20
+wait 500 ms
+assert 0x41
+wait 550 ms
+assert 0x80
+wait 550 ms
+assert 0x21
+wait 550 ms
+assert 0x40
+wait 550 ms
+assert 0x81
+wait 550 ms
+assert 0x20
+generatetd
