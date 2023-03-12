@@ -76,7 +76,7 @@ public class About : Form
 		this.label2.Name = "label2";
 		this.label2.Size = new System.Drawing.Size(69, 13);
 		this.label2.TabIndex = 2;
-		this.label2.Text = "Version 2.8";
+		this.label2.Text = "Version 2.9";
 		this.label3.AutoSize = true;
 		this.label3.Location = new System.Drawing.Point(12, 22);
 		this.label3.Name = "label3";

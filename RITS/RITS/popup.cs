@@ -110,7 +110,7 @@ internal class popup : Form
 		this.label1.Name = "label1";
 		this.label1.Size = new System.Drawing.Size(231, 39);
 		this.label1.TabIndex = 0;
-		this.label1.Text = "Riverside-Irvine Timing-Diagram Solution (RITS)\r\nCopyright © 2008 - 2013 UC Regents\r\nVersion 2.8";
+		this.label1.Text = "Riverside-Irvine Timing-Diagram Solution (RITS)\r\nCopyright © 2008 - 2013 UC Regents\r\nVersion 2.9";
 		this.richTextBox1.Location = new System.Drawing.Point(12, 64);
 		this.richTextBox1.Name = "richTextBox1";
 		this.richTextBox1.Size = new System.Drawing.Size(241, 182);

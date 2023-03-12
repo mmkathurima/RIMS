@@ -127,7 +127,7 @@ internal class Generator
 	{
 		DateTime dateTime = default(DateTime);
 		dateTime = DateTime.Now;
-		string text = "/*\r\nThis code was automatically generated using the Riverside-Irvine State machine Builder tool\r\nVersion " + 2.8 + " --- " + dateTime.Month + "/" + dateTime.Day + "/" + dateTime.Year + " " + dateTime.Hour + ":" + dateTime.Minute + ":" + dateTime.Second + " PST\r\n*/\r\n\r\n";
+		string text = "/*\r\nThis code was automatically generated using the Riverside-Irvine State machine Builder tool\r\nVersion " + 2.9 + " --- " + dateTime.Month + "/" + dateTime.Day + "/" + dateTime.Year + " " + dateTime.Hour + ":" + dateTime.Minute + ":" + dateTime.Second + " PST\r\n*/\r\n\r\n";
 		text += "#include \"rims.h\"\r\n\r\n";
 		if (graph.GlobalCode.Length > 0)
 		{

@@ -4,7 +4,7 @@ namespace RIBS_V3;
 
 public class Constants
 {
-	public const double VERSION = 2.8;
+	public const double VERSION = 2.9;
 
 	public const int PROJECTVERSION = 1;
 
