@@ -479,9 +479,11 @@ public class MainForm : Form
 
     private List<WMPLib.WindowsMediaPlayer> players = new List<WMPLib.WindowsMediaPlayer>();
 
-    private Form frmSevenSegment;
+    private Form frmSevenSegment, dialFrm;
     private SevenSegment sevenSegment;
-    private bool sevenSegmentShown = false;
+    private bool sevenSegmentShown = false, dialShown = false, programmerCalcShown = false;
+    private KnobControl dialKnob;
+    private ProgrammerCalculator programmerCalculator;
 
     protected override void Dispose(bool disposing)
     {
@@ -1978,7 +1980,17 @@ public class MainForm : Form
         {
             if (!sevenSegmentShown)
             {
-                frmSevenSegment = new Form();
+                frmSevenSegment = new Form()
+                {
+                    Width = 250,
+                    //FormBorderStyle = FormBorderStyle.FixedSingle;
+                    MaximizeBox = false,
+                    Icon = this.Icon,
+                    Location = new Point(this.Location.X + this.Width, this.Location.Y),
+                    Text = "Seven Segment Display",
+
+                };
+
                 sevenSegment = new SevenSegment()
                 {
                     Dock = DockStyle.Fill,
@@ -1994,14 +2006,8 @@ public class MainForm : Form
                     Name = "sevenSegment1",
                     TabStop = false,
                 };
-                frmSevenSegment.Width = 250;
-                //frmSevenSegment.FormBorderStyle = FormBorderStyle.FixedSingle;
-                frmSevenSegment.MaximizeBox = false;
-                frmSevenSegment.Icon = this.Icon;
                 frmSevenSegment.Controls.Add(sevenSegment);
                 frmSevenSegment.Show();
-                frmSevenSegment.Location = new Point(this.Location.X + this.Width, this.Location.Y);
-                frmSevenSegment.Text = "Seven Segment Display";
                 frmSevenSegment.FormClosed += new FormClosedEventHandler((object sender, FormClosedEventArgs fcea) =>
                 {
                     sevenSegmentShown = false;
@@ -2016,15 +2022,93 @@ public class MainForm : Form
 
         ToolStripMenuItem programmerCalc = new ToolStripMenuItem()
         {
-            Name="programmerCalculator",
-            Size=new System.Drawing.Size(206,22),
-            Text="Programmer Calculator"
+            Name = "programmerCalculator",
+            Size = new System.Drawing.Size(206, 22),
+            Text = "Programmer Calculator"
         };
         programmerCalc.Click += (object sender, EventArgs e) =>
-        {
-            new ProgrammerCalculator().Show();
-        };
+            {
+                if (!this.programmerCalcShown)
+                {
+                    this.programmerCalculator = new ProgrammerCalculator();
+                    this.programmerCalculator.FormClosed += (object sender, FormClosedEventArgs fcea) =>
+                    {
+                        this.programmerCalcShown = false;
+                    };
+                    this.programmerCalculator.Show();
+                    this.programmerCalcShown = true;
+                }
+                else this.programmerCalculator?.Focus();
+            };
         this.toolsToolStripMenuItem.DropDownItems.Add(programmerCalc);
+
+        ToolStripMenuItem dialToolStripMenuItem = new ToolStripMenuItem()
+        {
+            Name = "dialToolStripMenuItem",
+            Size = new System.Drawing.Size(153, 22),
+            Text = "Show Dial"
+        };
+        dialToolStripMenuItem.Click += (object sender, EventArgs e) =>
+        {
+            if (!this.dialShown)
+            {
+                dialKnob = new KnobControl()
+                {
+                    EndAngle = 405F,
+                    ImeMode = System.Windows.Forms.ImeMode.On,
+                    KnobBackColor = System.Drawing.Color.White,
+                    KnobPointerStyle = KnobControl.KnobPointerStyles.line,
+                    LargeChange = 1,
+                    Location = new System.Drawing.Point(13, 14),
+                    Margin = new System.Windows.Forms.Padding(4, 5, 4, 5),
+                    Maximum = 9,
+                    Minimum = 0,
+                    MouseWheelBarPartitions = 1,
+                    Name = "knobControl3",
+                    PointerColor = System.Drawing.Color.Black,
+                    ScaleColor = System.Drawing.Color.Black,
+                    ScaleDivisions = 10,
+                    ScaleFont = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point),
+                    ScaleFontAutoSize = false,
+                    ScaleSubDivisions = 4,
+                    ShowLargeScale = true,
+                    ShowSmallScale = false,
+                    Size = new System.Drawing.Size(200, 200),
+                    SmallChange = 1,
+                    StartAngle = 135F,
+                    TabIndex = 2,
+                    Value = 0,
+                };
+
+                dialFrm = new Form()
+                {
+                    AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F),
+                    AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font,
+                    ClientSize = new System.Drawing.Size(235, 228),
+                    Margin = new System.Windows.Forms.Padding(4, 5, 4, 5),
+                    Name = "dialFrm",
+                    Text = "Dial",
+                    Icon = this.Icon,
+                    MaximizeBox = false,
+                    Location = new Point(this.Location.X + this.Width, this.Location.Y),
+                };
+                dialFrm.FormClosing += (object sender, FormClosingEventArgs e) =>
+                {
+                    if (this.dialShown && this.running)
+                        e.Cancel = true;
+                };
+                dialFrm.FormClosed += (object sender, FormClosedEventArgs e) =>
+                {
+                    this.dialShown = false;
+                    testVectorCleanup();
+                };
+                dialFrm.Controls.Add(dialKnob);
+                dialFrm.Show();
+                this.dialShown = true;
+            }
+            else this.dialFrm?.Focus();
+        };
+        this.inputsToolStripMenuItem.DropDownItems.Add(dialToolStripMenuItem);
     }
 
     public MainForm()
@@ -2554,6 +2638,32 @@ public class MainForm : Form
                 }
                 runFromInputVectors();
             }
+            if (this.dialShown)
+            {
+                Invoke((Action)delegate
+                {
+                    var temp_marker = testVectorText.Markers[CUR_LINE_MARKER_NUMBER];
+                    temp_marker.Number = CUR_LINE_MARKER_NUMBER;
+                    temp_marker.Symbol = CUR_LINE_SYMBOL;
+                    Marker marker = temp_marker;
+                    Color color = (temp_marker.BackColor = CUR_LINE_COLOR);
+                    Color foreColor = color;
+                    marker.ForeColor = foreColor;
+                    A0.Enabled = false;
+                    A1.Enabled = false;
+                    A2.Enabled = false;
+                    A3.Enabled = false;
+                    A4.Enabled = false;
+                    A5.Enabled = false;
+                    A6.Enabled = false;
+                    A7.Enabled = false;
+                    for (int i = 0; i < 8; i++)
+                    {
+                        A_Image_Location[i] += 2;
+                        UpdateA_Images();
+                    }
+                });
+            }
             block?.run();
             vm_terminate = new VM();
             IntPtr intPtr = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(InitStruct)));
@@ -2699,6 +2809,15 @@ public class MainForm : Form
             UpdateDebugOutput();
             UpdateSMAnimation();
             peripherals.UpdateSymbols(vm);
+
+            if (this.running && this.dialShown && this.dialKnob != null)
+            {
+                string s = string.Join("", Convert.ToString(this.dialKnob.Value, 2).PadLeft(8, '0').Reverse());
+                //Debug.WriteLine(s);
+                for (int i1 = 0; i1 < s.Length; i1++)
+                    adjustInputToState($"A{i1}", s[i1] == '1' ? 1 : 0);
+                UpdateA_Value();
+            }
         }
     }
 
@@ -5157,7 +5276,7 @@ public class MainForm : Form
         {
             if (line.Length < 9)
             {
-                MessageBox.Show("Erorr:" + lineno + ": must have values for all 8 inputs");
+                MessageBox.Show("Error:" + lineno + ": must have values for all 8 inputs");
                 return null;
             }
             foreach (char item in line[1..].Reverse())
@@ -5167,7 +5286,7 @@ public class MainForm : Form
                     list.Add((byte)char.GetNumericValue(item));
                     continue;
                 }
-                MessageBox.Show("Erorr:" + lineno + ": input values must be either 0 or 1");
+                MessageBox.Show("Error:" + lineno + ": input values must be either 0 or 1");
                 return null;
             }
             return list;
@@ -5176,7 +5295,7 @@ public class MainForm : Form
         {
             if (line.Length < 4)
             {
-                MessageBox.Show("Erorr:" + lineno + ": must have values for all 8 inputs");
+                MessageBox.Show("Error:" + lineno + ": must have values for all 8 inputs");
                 return null;
             }
             foreach (char item2 in line[2..].Reverse())
@@ -5191,7 +5310,7 @@ public class MainForm : Form
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show("Erorr:" + lineno + ": hex value invalid");
+                    MessageBox.Show("Error:" + lineno + ": hex value invalid");
                     return null;
                 }
             }
@@ -5212,7 +5331,7 @@ public class MainForm : Form
         }
         catch (Exception)
         {
-            MessageBox.Show("Erorr:" + lineno + ": decimal value invalid");
+            MessageBox.Show("Error:" + lineno + ": decimal value invalid");
             return null;
         }
     }
@@ -5339,7 +5458,7 @@ public class MainForm : Form
                             string[] array = current.Split();
                             if (array.Length != 3)
                             {
-                                MessageBox.Show("Erorr:" + lineno + ": format is 'wait number scale'");
+                                MessageBox.Show("Error:" + lineno + ": format is 'wait number scale'");
                                 runFromInputVectorsThreadIsRunning = false;
                                 break;
                             }
@@ -5350,7 +5469,7 @@ public class MainForm : Form
                             }
                             catch (FormatException)
                             {
-                                MessageBox.Show("Erorr:" + lineno + ": format is 'wait number scale'");
+                                MessageBox.Show("Error:" + lineno + ": format is 'wait number scale'");
                                 runFromInputVectorsThreadIsRunning = false;
                                 break;
                             }
@@ -5368,7 +5487,7 @@ public class MainForm : Form
                                 }
                                 else
                                 {
-                                    MessageBox.Show("Erorr:" + lineno + ": scale must be either ms or s");
+                                    MessageBox.Show("Error:" + lineno + ": scale must be either ms or s");
                                     runFromInputVectorsThreadIsRunning = false;
                                 }
                             }
@@ -5388,7 +5507,7 @@ public class MainForm : Form
                                 string[] array2 = current.Split();
                                 if (array2.Length != 2)
                                 {
-                                    MessageBox.Show("Erorr:" + lineno + ": format is 'assert ########'");
+                                    MessageBox.Show("Error:" + lineno + ": format is 'assert ########'");
                                     runFromInputVectorsThreadIsRunning = false;
                                 }
                                 else
@@ -5453,7 +5572,7 @@ public class MainForm : Form
                             }
                             if (current.Split().Length != 1)
                             {
-                                MessageBox.Show("Erorr:" + lineno + ": unknown command: " + current);
+                                MessageBox.Show("Error:" + lineno + ": unknown command: " + current);
                                 runFromInputVectorsThreadIsRunning = false;
                                 break;
                             }
