@@ -2063,7 +2063,7 @@ public class MainForm : Form
                     Margin = new System.Windows.Forms.Padding(4, 5, 4, 5),
                     Maximum = 9,
                     Minimum = 0,
-                    MouseWheelBarPartitions = 1,
+                    MouseWheelBarPartitions = 9,
                     Name = "knobControl3",
                     PointerColor = System.Drawing.Color.Black,
                     ScaleColor = System.Drawing.Color.Black,
