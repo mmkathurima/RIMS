@@ -2052,6 +2052,7 @@ public class MainForm : Form
         {
             if (!this.dialShown)
             {
+                //TODO: Consider whether to turn up to 255 or leave it at 9.
                 dialKnob = new KnobControl()
                 {
                     EndAngle = 405F,
@@ -2091,6 +2092,7 @@ public class MainForm : Form
                     Icon = this.Icon,
                     MaximizeBox = false,
                     Location = new Point(this.Location.X + this.Width, this.Location.Y),
+                    FormBorderStyle = FormBorderStyle.FixedDialog
                 };
                 dialFrm.FormClosing += (object sender, FormClosingEventArgs e) =>
                 {
@@ -2787,6 +2789,15 @@ public class MainForm : Form
             useTestVectors.Enabled = false;
             developCToolStripMenuItem.Enabled = false;
             developASMToolStripMenuItem.Enabled = false;
+
+            if (this.dialShown && this.dialKnob != null)
+            {
+                string s = string.Join("", Convert.ToString(this.dialKnob.Value, 2).PadLeft(8, '0').Reverse());
+                //Debug.WriteLine(s);
+                for (int i1 = 0; i1 < s.Length; i1++)
+                    adjustInputToState($"A{i1}", s[i1] == '1' ? 1 : 0);
+                UpdateA_Value();
+            }
         }
         else
         {
@@ -2809,15 +2820,6 @@ public class MainForm : Form
             UpdateDebugOutput();
             UpdateSMAnimation();
             peripherals.UpdateSymbols(vm);
-
-            if (this.running && this.dialShown && this.dialKnob != null)
-            {
-                string s = string.Join("", Convert.ToString(this.dialKnob.Value, 2).PadLeft(8, '0').Reverse());
-                //Debug.WriteLine(s);
-                for (int i1 = 0; i1 < s.Length; i1++)
-                    adjustInputToState($"A{i1}", s[i1] == '1' ? 1 : 0);
-                UpdateA_Value();
-            }
         }
     }
 
