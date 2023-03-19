@@ -2013,6 +2013,18 @@ public class MainForm : Form
         });
 
         this.outputsToolStripMenuItem.DropDownItems.Add(showSegment);
+
+        ToolStripMenuItem programmerCalc = new ToolStripMenuItem()
+        {
+            Name="programmerCalculator",
+            Size=new System.Drawing.Size(206,22),
+            Text="Programmer Calculator"
+        };
+        programmerCalc.Click += (object sender, EventArgs e) =>
+        {
+            new ProgrammerCalculator().Show();
+        };
+        this.toolsToolStripMenuItem.DropDownItems.Add(programmerCalc);
     }
 
     public MainForm()

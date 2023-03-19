@@ -175,6 +175,7 @@
 		<Reference Include="System.Design" />
 	</ItemGroup>
 	<ItemGroup>
+		<PackageReference Include="Microsoft.CodeAnalysis.CSharp.Scripting" Version="4.5.0" />
 		<PackageReference Include="Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers" Version="0.4.355802">
 			<PrivateAssets>all</PrivateAssets>
 		</PackageReference>
