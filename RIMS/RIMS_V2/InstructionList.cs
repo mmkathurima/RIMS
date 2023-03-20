@@ -88,6 +88,7 @@ public class InstructionList : Form
 		base.Controls.Add(this.tableLayoutPanel1);
 		base.Name = "InstructionList";
 		this.Text = "MIPS Instruction List";
+		this.Icon = MainForm.ActiveForm.Icon;
 		this.tableLayoutPanel1.ResumeLayout(false);
 		this.tableLayoutPanel1.PerformLayout();
 		base.ResumeLayout(false);

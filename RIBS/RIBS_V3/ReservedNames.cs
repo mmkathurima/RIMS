@@ -106,6 +106,7 @@ public class ReservedNames : Form
 		base.AutoScaleDimensions = new System.Drawing.SizeF(6f, 13f);
 		base.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 		base.ClientSize = new System.Drawing.Size(266, 172);
+		base.FormBorderStyle = FormBorderStyle.FixedDialog;
 		base.ControlBox = false;
 		base.Controls.Add(this.button1);
 		base.Controls.Add(this.ReservedVariablesGroupBox);

@@ -119,9 +119,9 @@
   </resheader>
   <data name="label5.Text" xml:space="preserve">
     <value>Expressions can include AND (&amp;&amp;), OR (|), NOT (!), XOR (^),
-bit shift (&lt;&lt; and &gt;&gt;), BODMAS (()*/+-) operations 
-with numbers of bases 2, 8, 10, and 16. Just remember to 
-add the numeric prefixes for bases excluding decimal i.e. 0x 
-for hexadecimal, 0b for binary and 0 for octal numbers.</value>
+bit shift (&lt;&lt; and &gt;&gt;), BODMAS (()*/+-) operations with 
+numbers of base 2, 8, 10, and 16. Just remember to add the
+numeric prefixes for bases excluding decimal i.e. 0x for 
+hexadecimal, 0b for binary and 0 for octal</value>
   </data>
 </root>

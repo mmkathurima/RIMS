@@ -22,8 +22,7 @@ public partial class ProgrammerCalculator : Form
     {
         InitializeComponent();
         comboBox1.SelectedItem = comboBox1.Items[0];
-        binaryTxt.Focus();
-        this.Icon = MainForm.ActiveForm.Icon;
+        expTxt.ShortcutsEnabled = false;
     }
 
     private void OnKeyPress(object sender, KeyPressEventArgs e)
@@ -54,7 +53,7 @@ public partial class ProgrammerCalculator : Form
                 break;
             case "expTxt":
                 if (!hex.Concat<char>(new[] { '(', ')', '/', '*', '+', '-', '%', ' ',
-                    '.', 'X', 'B', '|', '&', '!', '^', '<', '>' })
+                '.', 'X', 'B', '|', '&', '~', '^', '<', '>', '!', '=' })
                     .Contains<char>(char.ToUpper(c)))
                     e.Handled = true;
                 break;
@@ -196,7 +195,7 @@ public partial class ProgrammerCalculator : Form
             case "octLeftShift":
                 if (!string.IsNullOrEmpty(octalTxt.Text))
                 {
-                    octalTxt.Text = Convert.ToString(Convert.ToInt32(octalTxt.Text, 8) << 1, 16);
+                    octalTxt.Text = Convert.ToString(Convert.ToInt32(octalTxt.Text, 8) >> 1, 16);
                     binaryTxt.Text = Convert.ToString(Convert.ToInt32(octalTxt.Text, 8), 2);
                     hexadecimalTxt.Text = Convert.ToString(Convert.ToInt32(octalTxt.Text, 8), 16).ToUpper();
                     decimalTxt.Text = Convert.ToString(Convert.ToInt32(octalTxt.Text, 8), 10);
@@ -205,7 +204,43 @@ public partial class ProgrammerCalculator : Form
             case "octRightShift":
                 if (!string.IsNullOrEmpty(octalTxt.Text))
                 {
-                    octalTxt.Text = Convert.ToString(Convert.ToInt32(octalTxt.Text, 8) >> 1, 8);
+                    octalTxt.Text = Convert.ToString(Convert.ToInt32(octalTxt.Text, 8) << 1, 8);
+                    binaryTxt.Text = Convert.ToString(Convert.ToInt32(octalTxt.Text, 8), 2);
+                    hexadecimalTxt.Text = Convert.ToString(Convert.ToInt32(octalTxt.Text, 8), 16).ToUpper();
+                    decimalTxt.Text = Convert.ToString(Convert.ToInt32(octalTxt.Text, 8), 10);
+                }
+                break;
+            case "decimalNot":
+                if (!string.IsNullOrEmpty(decimalTxt.Text))
+                {
+                    decimalTxt.Text = Convert.ToString(~Convert.ToInt32(decimalTxt.Text, 10), 10);
+                    binaryTxt.Text = Convert.ToString(Convert.ToInt32(decimalTxt.Text, 10), 2);
+                    hexadecimalTxt.Text = Convert.ToString(Convert.ToInt32(decimalTxt.Text, 10), 16).ToUpper();
+                    octalTxt.Text = Convert.ToString(Convert.ToInt32(decimalTxt.Text, 10), 8);
+                }
+                break;
+            case "binaryNot":
+                if (!string.IsNullOrEmpty(binaryTxt.Text))
+                {
+                    binaryTxt.Text = Convert.ToString(~Convert.ToInt32(binaryTxt.Text, 2), 2);
+                    decimalTxt.Text = Convert.ToString(Convert.ToInt32(binaryTxt.Text, 2), 10);
+                    hexadecimalTxt.Text = Convert.ToString(Convert.ToInt32(binaryTxt.Text, 2), 16).ToUpper();
+                    octalTxt.Text = Convert.ToString(Convert.ToInt32(binaryTxt.Text, 2), 8);
+                }
+                break;
+            case "hexNot":
+                if (!string.IsNullOrEmpty(hexadecimalTxt.Text))
+                {
+                    hexadecimalTxt.Text = Convert.ToString(~Convert.ToInt32(hexadecimalTxt.Text, 16), 16);
+                    binaryTxt.Text = Convert.ToString(Convert.ToInt32(hexadecimalTxt.Text, 16), 2);
+                    decimalTxt.Text = Convert.ToString(Convert.ToInt32(hexadecimalTxt.Text, 16), 10);
+                    octalTxt.Text = Convert.ToString(Convert.ToInt32(hexadecimalTxt.Text, 16), 8);
+                }
+                break;
+            case "octNot":
+                if (!string.IsNullOrEmpty(octalTxt.Text))
+                {
+                    octalTxt.Text = Convert.ToString(~Convert.ToInt32(octalTxt.Text, 8), 16);
                     binaryTxt.Text = Convert.ToString(Convert.ToInt32(octalTxt.Text, 8), 2);
                     hexadecimalTxt.Text = Convert.ToString(Convert.ToInt32(octalTxt.Text, 8), 16).ToUpper();
                     decimalTxt.Text = Convert.ToString(Convert.ToInt32(octalTxt.Text, 8), 10);

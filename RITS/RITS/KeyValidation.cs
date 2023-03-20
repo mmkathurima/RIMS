@@ -150,10 +150,14 @@ public class KeyValidation : Form
 
 	private void textBox1_LinkClicked(object sender, LinkClickedEventArgs e)
 	{
-		Process.Start(e.LinkText);
-	}
+        Process.Start(new ProcessStartInfo()
+        {
+            UseShellExecute = true,
+            FileName = e.LinkText
+        });
+    }
 
-	protected override void Dispose(bool disposing)
+    protected override void Dispose(bool disposing)
 	{
 		if (disposing && components != null)
 		{
@@ -221,7 +225,8 @@ public class KeyValidation : Form
 		this.textBox1.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(textBox1_LinkClicked);
 		base.AutoScaleDimensions = new System.Drawing.SizeF(6f, 13f);
 		base.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-		base.ClientSize = new System.Drawing.Size(446, 171);
+		base.ClientSize = new System.Drawing.Size(460, 180);
+		base.FormBorderStyle = FormBorderStyle.FixedDialog;
 		base.ControlBox = false;
 		base.Controls.Add(this.textBox1);
 		base.Controls.Add(this.button3);
@@ -231,9 +236,6 @@ public class KeyValidation : Form
 		base.Controls.Add(this.button2);
 		base.Controls.Add(this.textBox2);
 		base.MaximizeBox = false;
-		this.MaximumSize = new System.Drawing.Size(462, 209);
-		base.MinimizeBox = false;
-		this.MinimumSize = new System.Drawing.Size(462, 189);
 		base.Name = "KeyValidation";
 		base.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
 		this.Text = "Update License Key";

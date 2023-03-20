@@ -569,6 +569,6 @@ public class RITS : Form
 	{
 		KeyValidation keyValidation = new KeyValidation();
 		keyValidation.ShowDialog();
-        keyValidation.Size = keyValidation.MaximumSize = keyValidation.MinimumSize = new Size(this.Width, this.Height + 50);
+        //keyValidation.Size = keyValidation.MaximumSize = keyValidation.MinimumSize = new Size(this.Width, this.Height + 50);
     }
 }

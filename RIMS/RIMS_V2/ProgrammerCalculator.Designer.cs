@@ -40,18 +40,22 @@ partial class ProgrammerCalculator
         this.decRightShift = new System.Windows.Forms.Button();
         this.decLeftShift = new System.Windows.Forms.Button();
         this.groupBox1 = new System.Windows.Forms.GroupBox();
+        this.octLeftShift = new System.Windows.Forms.Button();
+        this.hexLeftShift = new System.Windows.Forms.Button();
+        this.binLeftShift = new System.Windows.Forms.Button();
+        this.octRightShift = new System.Windows.Forms.Button();
+        this.hexRightShift = new System.Windows.Forms.Button();
+        this.binRightShift = new System.Windows.Forms.Button();
         this.groupBox3 = new System.Windows.Forms.GroupBox();
+        this.label5 = new System.Windows.Forms.Label();
+        this.comboBox1 = new System.Windows.Forms.ComboBox();
         this.ansTxt = new System.Windows.Forms.TextBox();
         this.expTxt = new System.Windows.Forms.TextBox();
         this.btnEq = new System.Windows.Forms.Button();
-        this.comboBox1 = new System.Windows.Forms.ComboBox();
-        this.binRightShift = new System.Windows.Forms.Button();
-        this.binLeftShift = new System.Windows.Forms.Button();
-        this.hexRightShift = new System.Windows.Forms.Button();
-        this.hexLeftShift = new System.Windows.Forms.Button();
-        this.octRightShift = new System.Windows.Forms.Button();
-        this.octLeftShift = new System.Windows.Forms.Button();
-        this.label5 = new System.Windows.Forms.Label();
+        this.decimalNot = new System.Windows.Forms.Button();
+        this.binaryNot = new System.Windows.Forms.Button();
+        this.hexNot = new System.Windows.Forms.Button();
+        this.octNOT = new System.Windows.Forms.Button();
         this.groupBox1.SuspendLayout();
         this.groupBox3.SuspendLayout();
         this.SuspendLayout();
@@ -163,6 +167,10 @@ partial class ProgrammerCalculator
         this.groupBox1.Controls.Add(this.decLeftShift);
         this.groupBox1.Controls.Add(this.binRightShift);
         this.groupBox1.Controls.Add(this.decimalTxt);
+        this.groupBox1.Controls.Add(this.octNOT);
+        this.groupBox1.Controls.Add(this.hexNot);
+        this.groupBox1.Controls.Add(this.binaryNot);
+        this.groupBox1.Controls.Add(this.decimalNot);
         this.groupBox1.Controls.Add(this.decRightShift);
         this.groupBox1.Controls.Add(this.hexadecimalTxt);
         this.groupBox1.Controls.Add(this.label4);
@@ -177,6 +185,66 @@ partial class ProgrammerCalculator
         this.groupBox1.TabStop = false;
         this.groupBox1.Text = "Convert Bases";
         // 
+        // octLeftShift
+        // 
+        this.octLeftShift.Location = new System.Drawing.Point(9, 296);
+        this.octLeftShift.Name = "octLeftShift";
+        this.octLeftShift.Size = new System.Drawing.Size(75, 23);
+        this.octLeftShift.TabIndex = 4;
+        this.octLeftShift.Text = "<<";
+        this.octLeftShift.UseVisualStyleBackColor = true;
+        this.octLeftShift.Click += new System.EventHandler(this.OnClick);
+        // 
+        // hexLeftShift
+        // 
+        this.hexLeftShift.Location = new System.Drawing.Point(6, 221);
+        this.hexLeftShift.Name = "hexLeftShift";
+        this.hexLeftShift.Size = new System.Drawing.Size(75, 23);
+        this.hexLeftShift.TabIndex = 4;
+        this.hexLeftShift.Text = "<<";
+        this.hexLeftShift.UseVisualStyleBackColor = true;
+        this.hexLeftShift.Click += new System.EventHandler(this.OnClick);
+        // 
+        // binLeftShift
+        // 
+        this.binLeftShift.Location = new System.Drawing.Point(9, 144);
+        this.binLeftShift.Name = "binLeftShift";
+        this.binLeftShift.Size = new System.Drawing.Size(75, 23);
+        this.binLeftShift.TabIndex = 4;
+        this.binLeftShift.Text = "<<";
+        this.binLeftShift.UseVisualStyleBackColor = true;
+        this.binLeftShift.Click += new System.EventHandler(this.OnClick);
+        // 
+        // octRightShift
+        // 
+        this.octRightShift.Location = new System.Drawing.Point(90, 296);
+        this.octRightShift.Name = "octRightShift";
+        this.octRightShift.Size = new System.Drawing.Size(75, 23);
+        this.octRightShift.TabIndex = 0;
+        this.octRightShift.Text = ">>";
+        this.octRightShift.UseVisualStyleBackColor = true;
+        this.octRightShift.Click += new System.EventHandler(this.OnClick);
+        // 
+        // hexRightShift
+        // 
+        this.hexRightShift.Location = new System.Drawing.Point(87, 221);
+        this.hexRightShift.Name = "hexRightShift";
+        this.hexRightShift.Size = new System.Drawing.Size(75, 23);
+        this.hexRightShift.TabIndex = 0;
+        this.hexRightShift.Text = ">>";
+        this.hexRightShift.UseVisualStyleBackColor = true;
+        this.hexRightShift.Click += new System.EventHandler(this.OnClick);
+        // 
+        // binRightShift
+        // 
+        this.binRightShift.Location = new System.Drawing.Point(90, 144);
+        this.binRightShift.Name = "binRightShift";
+        this.binRightShift.Size = new System.Drawing.Size(75, 23);
+        this.binRightShift.TabIndex = 0;
+        this.binRightShift.Text = ">>";
+        this.binRightShift.UseVisualStyleBackColor = true;
+        this.binRightShift.Click += new System.EventHandler(this.OnClick);
+        // 
         // groupBox3
         // 
         this.groupBox3.Controls.Add(this.label5);
@@ -184,12 +252,34 @@ partial class ProgrammerCalculator
         this.groupBox3.Controls.Add(this.ansTxt);
         this.groupBox3.Controls.Add(this.expTxt);
         this.groupBox3.Controls.Add(this.btnEq);
-        this.groupBox3.Location = new System.Drawing.Point(386, 12);
+        this.groupBox3.Location = new System.Drawing.Point(386, 22);
         this.groupBox3.Name = "groupBox3";
-        this.groupBox3.Size = new System.Drawing.Size(494, 322);
+        this.groupBox3.Size = new System.Drawing.Size(494, 309);
         this.groupBox3.TabIndex = 7;
         this.groupBox3.TabStop = false;
         this.groupBox3.Text = "Evaluate Mathematical Expression";
+        // 
+        // label5
+        // 
+        this.label5.AutoSize = true;
+        this.label5.Location = new System.Drawing.Point(77, 130);
+        this.label5.Name = "label5";
+        this.label5.Size = new System.Drawing.Size(381, 80);
+        this.label5.TabIndex = 36;
+        this.label5.Text = resources.GetString("label5.Text");
+        // 
+        // comboBox1
+        // 
+        this.comboBox1.FormattingEnabled = true;
+        this.comboBox1.Items.AddRange(new object[] {
+        "DEC",
+        "BIN",
+        "HEX",
+        "OCT"});
+        this.comboBox1.Location = new System.Drawing.Point(7, 82);
+        this.comboBox1.Name = "comboBox1";
+        this.comboBox1.Size = new System.Drawing.Size(66, 24);
+        this.comboBox1.TabIndex = 35;
         // 
         // ansTxt
         // 
@@ -226,87 +316,45 @@ partial class ProgrammerCalculator
         this.btnEq.UseVisualStyleBackColor = false;
         this.btnEq.Click += new System.EventHandler(this.OnClick);
         // 
-        // comboBox1
+        // decimalNot
         // 
-        this.comboBox1.FormattingEnabled = true;
-        this.comboBox1.Items.AddRange(new object[] {
-        "DEC",
-        "BIN",
-        "HEX",
-        "OCT"});
-        this.comboBox1.Location = new System.Drawing.Point(7, 82);
-        this.comboBox1.Name = "comboBox1";
-        this.comboBox1.Size = new System.Drawing.Size(66, 24);
-        this.comboBox1.TabIndex = 35;
+        this.decimalNot.Location = new System.Drawing.Point(171, 71);
+        this.decimalNot.Name = "decimalNot";
+        this.decimalNot.Size = new System.Drawing.Size(75, 23);
+        this.decimalNot.TabIndex = 0;
+        this.decimalNot.Text = "NOT";
+        this.decimalNot.UseVisualStyleBackColor = true;
+        this.decimalNot.Click += new System.EventHandler(this.OnClick);
         // 
-        // binRightShift
+        // binaryNot
         // 
-        this.binRightShift.Location = new System.Drawing.Point(90, 144);
-        this.binRightShift.Name = "binRightShift";
-        this.binRightShift.Size = new System.Drawing.Size(75, 23);
-        this.binRightShift.TabIndex = 0;
-        this.binRightShift.Text = ">>";
-        this.binRightShift.UseVisualStyleBackColor = true;
-        this.binRightShift.Click += new System.EventHandler(this.OnClick);
+        this.binaryNot.Location = new System.Drawing.Point(171, 144);
+        this.binaryNot.Name = "binaryNot";
+        this.binaryNot.Size = new System.Drawing.Size(75, 23);
+        this.binaryNot.TabIndex = 0;
+        this.binaryNot.Text = "NOT";
+        this.binaryNot.UseVisualStyleBackColor = true;
+        this.binaryNot.Click += new System.EventHandler(this.OnClick);
         // 
-        // binLeftShift
+        // hexNot
         // 
-        this.binLeftShift.Location = new System.Drawing.Point(9, 144);
-        this.binLeftShift.Name = "binLeftShift";
-        this.binLeftShift.Size = new System.Drawing.Size(75, 23);
-        this.binLeftShift.TabIndex = 4;
-        this.binLeftShift.Text = "<<";
-        this.binLeftShift.UseVisualStyleBackColor = true;
-        this.binLeftShift.Click += new System.EventHandler(this.OnClick);
+        this.hexNot.Location = new System.Drawing.Point(168, 221);
+        this.hexNot.Name = "hexNot";
+        this.hexNot.Size = new System.Drawing.Size(75, 23);
+        this.hexNot.TabIndex = 0;
+        this.hexNot.Text = "NOT";
+        this.hexNot.UseVisualStyleBackColor = true;
+        this.hexNot.Click += new System.EventHandler(this.OnClick);
         // 
-        // hexRightShift
+        // octNOT
         // 
-        this.hexRightShift.Location = new System.Drawing.Point(87, 221);
-        this.hexRightShift.Name = "hexRightShift";
-        this.hexRightShift.Size = new System.Drawing.Size(75, 23);
-        this.hexRightShift.TabIndex = 0;
-        this.hexRightShift.Text = ">>";
-        this.hexRightShift.UseVisualStyleBackColor = true;
-        this.hexRightShift.Click += new System.EventHandler(this.OnClick);
-        // 
-        // hexLeftShift
-        // 
-        this.hexLeftShift.Location = new System.Drawing.Point(6, 221);
-        this.hexLeftShift.Name = "hexLeftShift";
-        this.hexLeftShift.Size = new System.Drawing.Size(75, 23);
-        this.hexLeftShift.TabIndex = 4;
-        this.hexLeftShift.Text = "<<";
-        this.hexLeftShift.UseVisualStyleBackColor = true;
-        this.hexLeftShift.Click += new System.EventHandler(this.OnClick);
-        // 
-        // octRightShift
-        // 
-        this.octRightShift.Location = new System.Drawing.Point(90, 296);
-        this.octRightShift.Name = "octRightShift";
-        this.octRightShift.Size = new System.Drawing.Size(75, 23);
-        this.octRightShift.TabIndex = 0;
-        this.octRightShift.Text = ">>";
-        this.octRightShift.UseVisualStyleBackColor = true;
-        this.octRightShift.Click += new System.EventHandler(this.OnClick);
-        // 
-        // octLeftShift
-        // 
-        this.octLeftShift.Location = new System.Drawing.Point(9, 296);
-        this.octLeftShift.Name = "octLeftShift";
-        this.octLeftShift.Size = new System.Drawing.Size(75, 23);
-        this.octLeftShift.TabIndex = 4;
-        this.octLeftShift.Text = "<<";
-        this.octLeftShift.UseVisualStyleBackColor = true;
-        this.octLeftShift.Click += new System.EventHandler(this.OnClick);
-        // 
-        // label5
-        // 
-        this.label5.AutoSize = true;
-        this.label5.Location = new System.Drawing.Point(77, 130);
-        this.label5.Name = "label5";
-        this.label5.Size = new System.Drawing.Size(381, 80);
-        this.label5.TabIndex = 36;
-        this.label5.Text = resources.GetString("label5.Text");
+        this.octNOT.Location = new System.Drawing.Point(168, 296);
+        this.octNOT.Name = "octNOT";
+        this.octNOT.Size = new System.Drawing.Size(75, 23);
+        this.octNOT.TabIndex = 0;
+        this.octNOT.Text = "NOT";
+        this.octNOT.UseVisualStyleBackColor = true;
+        this.octNOT.Click += new System.EventHandler(this.OnClick);
         // 
         // ProgrammerCalculator
         // 
@@ -352,4 +400,8 @@ partial class ProgrammerCalculator
     private System.Windows.Forms.Button hexRightShift;
     private System.Windows.Forms.Button binRightShift;
     private System.Windows.Forms.Label label5;
+    private System.Windows.Forms.Button octNOT;
+    private System.Windows.Forms.Button hexNot;
+    private System.Windows.Forms.Button binaryNot;
+    private System.Windows.Forms.Button decimalNot;
 }

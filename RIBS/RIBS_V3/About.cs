@@ -73,7 +73,8 @@ public class About : Form
 		this.button1.Click += new System.EventHandler(button1_Click);
 		base.AutoScaleDimensions = new System.Drawing.SizeF(6f, 13f);
 		base.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-		base.ClientSize = new System.Drawing.Size(284, 290);
+		base.ClientSize = new System.Drawing.Size(300, 320);
+		base.FormBorderStyle = FormBorderStyle.FixedDialog;
 		base.ControlBox = false;
 		base.Controls.Add(this.button1);
 		base.Controls.Add(this.label3);
@@ -102,10 +103,14 @@ public class About : Form
 
 	private void richTextBox1_LinkClicked(object sender, LinkClickedEventArgs e)
 	{
-		Process.Start(e.LinkText);
-	}
+        Process.Start(new ProcessStartInfo()
+        {
+            UseShellExecute = true,
+            FileName = e.LinkText
+        });
+    }
 
-	private void label2_Click(object sender, EventArgs e)
+    private void label2_Click(object sender, EventArgs e)
 	{
 	}
 }

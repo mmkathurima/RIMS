@@ -2062,13 +2062,13 @@ public class MainForm : Form
                     LargeChange = 1,
                     Location = new System.Drawing.Point(13, 14),
                     Margin = new System.Windows.Forms.Padding(4, 5, 4, 5),
-                    Maximum = 9,
+                    Maximum = byte.MaxValue,
                     Minimum = 0,
-                    MouseWheelBarPartitions = 9,
+                    MouseWheelBarPartitions = byte.MaxValue,
                     Name = "knobControl3",
                     PointerColor = System.Drawing.Color.Black,
                     ScaleColor = System.Drawing.Color.Black,
-                    ScaleDivisions = 10,
+                    ScaleDivisions = 16,
                     ScaleFont = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point),
                     ScaleFontAutoSize = false,
                     ScaleSubDivisions = 4,
@@ -2107,6 +2107,31 @@ public class MainForm : Form
                 dialFrm.Controls.Add(dialKnob);
                 dialFrm.Show();
                 this.dialShown = true;
+
+                if (this.running)
+                    Invoke((Action)delegate
+                    {
+                        var temp_marker = testVectorText.Markers[CUR_LINE_MARKER_NUMBER];
+                        temp_marker.Number = CUR_LINE_MARKER_NUMBER;
+                        temp_marker.Symbol = CUR_LINE_SYMBOL;
+                        Marker marker = temp_marker;
+                        Color color = (temp_marker.BackColor = CUR_LINE_COLOR);
+                        Color foreColor = color;
+                        marker.ForeColor = foreColor;
+                        A0.Enabled = false;
+                        A1.Enabled = false;
+                        A2.Enabled = false;
+                        A3.Enabled = false;
+                        A4.Enabled = false;
+                        A5.Enabled = false;
+                        A6.Enabled = false;
+                        A7.Enabled = false;
+                        for (int i = 0; i < 8; i++)
+                        {
+                            A_Image_Location[i] += 2;
+                            UpdateA_Images();
+                        }
+                    });
             }
             else this.dialFrm?.Focus();
         };
@@ -2714,6 +2739,18 @@ public class MainForm : Form
         }
         else
         {
+            if (this.dialShown)
+            {
+                for (int i = 0; i < 8; i++)
+                {
+                    if (A_Image_Location[i] >= 2)
+                    {
+                        A_Image_Location[i] -= 2;
+                    }
+                    UpdateA_Images();
+                }
+            }
+
             block?.run();
             lock (typeof(MainForm))
             {
@@ -2789,15 +2826,6 @@ public class MainForm : Form
             useTestVectors.Enabled = false;
             developCToolStripMenuItem.Enabled = false;
             developASMToolStripMenuItem.Enabled = false;
-
-            if (this.dialShown && this.dialKnob != null)
-            {
-                string s = string.Join("", Convert.ToString(this.dialKnob.Value, 2).PadLeft(8, '0').Reverse());
-                //Debug.WriteLine(s);
-                for (int i1 = 0; i1 < s.Length; i1++)
-                    adjustInputToState($"A{i1}", s[i1] == '1' ? 1 : 0);
-                UpdateA_Value();
-            }
         }
         else
         {
@@ -2820,6 +2848,15 @@ public class MainForm : Form
             UpdateDebugOutput();
             UpdateSMAnimation();
             peripherals.UpdateSymbols(vm);
+
+            if (this.dialShown && this.dialKnob != null)
+            {
+                string s = string.Join("", Convert.ToString(this.dialKnob.Value, 2).PadLeft(8, '0').Reverse());
+                //Debug.WriteLine(s);
+                for (int i1 = 0; i1 < s.Length; i1++)
+                    adjustInputToState($"A{i1}", s[i1] == '1' ? 1 : 0);
+                UpdateA_Value();
+            }
         }
     }
 
