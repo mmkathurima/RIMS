@@ -1996,9 +1996,9 @@ public class MainForm : Form
                     Dock = DockStyle.Fill,
                     ColonOn = false,
                     ColonShow = false,
-                    ColorBackground = System.Drawing.Color.DimGray,
-                    ColorDark = System.Drawing.Color.DarkGray,
-                    ColorLight = System.Drawing.Color.Lime,
+                    ColorBackground = Color.FromArgb(20, 24, 27),
+                    ColorDark = Color.FromArgb(170, 174, 179),
+                    ColorLight = Color.FromArgb(241, 11, 34),
                     CustomPattern = 0,
                     DecimalOn = false,
                     DecimalShow = false,
@@ -2108,30 +2108,30 @@ public class MainForm : Form
                 dialFrm.Show();
                 this.dialShown = true;
 
-                if (this.running)
-                    Invoke((Action)delegate
+                Invoke((Action)delegate
+                {
+                    var temp_marker = testVectorText.Markers[CUR_LINE_MARKER_NUMBER];
+                    temp_marker.Number = CUR_LINE_MARKER_NUMBER;
+                    temp_marker.Symbol = CUR_LINE_SYMBOL;
+                    Marker marker = temp_marker;
+                    Color color = (temp_marker.BackColor = CUR_LINE_COLOR);
+                    Color foreColor = color;
+                    marker.ForeColor = foreColor;
+                    A0.Enabled = false;
+                    A1.Enabled = false;
+                    A2.Enabled = false;
+                    A3.Enabled = false;
+                    A4.Enabled = false;
+                    A5.Enabled = false;
+                    A6.Enabled = false;
+                    A7.Enabled = false;
+                    for (int i = 0; i < 8; i++)
                     {
-                        var temp_marker = testVectorText.Markers[CUR_LINE_MARKER_NUMBER];
-                        temp_marker.Number = CUR_LINE_MARKER_NUMBER;
-                        temp_marker.Symbol = CUR_LINE_SYMBOL;
-                        Marker marker = temp_marker;
-                        Color color = (temp_marker.BackColor = CUR_LINE_COLOR);
-                        Color foreColor = color;
-                        marker.ForeColor = foreColor;
-                        A0.Enabled = false;
-                        A1.Enabled = false;
-                        A2.Enabled = false;
-                        A3.Enabled = false;
-                        A4.Enabled = false;
-                        A5.Enabled = false;
-                        A6.Enabled = false;
-                        A7.Enabled = false;
-                        for (int i = 0; i < 8; i++)
-                        {
+                        if (A_Image_Location[i] < 2)
                             A_Image_Location[i] += 2;
-                            UpdateA_Images();
-                        }
-                    });
+                        UpdateA_Images();
+                    }
+                });
             }
             else this.dialFrm?.Focus();
         };
@@ -2686,7 +2686,8 @@ public class MainForm : Form
                     A7.Enabled = false;
                     for (int i = 0; i < 8; i++)
                     {
-                        A_Image_Location[i] += 2;
+                        if (A_Image_Location[i] < 2)
+                            A_Image_Location[i] += 2;
                         UpdateA_Images();
                     }
                 });
@@ -2744,10 +2745,8 @@ public class MainForm : Form
                 for (int i = 0; i < 8; i++)
                 {
                     if (A_Image_Location[i] >= 2)
-                    {
                         A_Image_Location[i] -= 2;
-                    }
-                    UpdateA_Images();
+                    //UpdateA_Images();
                 }
             }
 
@@ -5455,7 +5454,8 @@ public class MainForm : Form
                     A7.Enabled = false;
                     for (int i = 0; i < 8; i++)
                     {
-                        A_Image_Location[i] += 2;
+                        if (A_Image_Location[i] < 2)
+                            A_Image_Location[i] += 2;
                         UpdateA_Images();
                     }
                 });
