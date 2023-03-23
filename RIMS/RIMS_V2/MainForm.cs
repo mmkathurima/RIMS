@@ -1565,7 +1565,7 @@ public class MainForm : Form
         base.AutoScaleDimensions = new System.Drawing.SizeF(6f, 13f);
         base.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
         this.AutoSize = true;
-        base.ClientSize = new System.Drawing.Size(844, 697);
+        //base.ClientSize = new System.Drawing.Size(844, 697);
         base.Controls.Add(this.useTestVectors);
         base.Controls.Add(this.testVectorBox);
         base.Controls.Add(this.label8);
@@ -1624,12 +1624,14 @@ public class MainForm : Form
         base.Controls.Add(this.A6);
         base.Controls.Add(this.A7);
         base.Controls.Add(this.groupBox3);
-        base.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+        //base.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+        base.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
         base.Icon = RIMS_V2_MainForm.Icon4;
         base.MainMenuStrip = this.menuStrip;
         base.MaximizeBox = false;
-        this.MaximumSize = new System.Drawing.Size(850, 700);
-        this.MinimumSize = new System.Drawing.Size(850, 700);
+        //this.MaximumSize = new System.Drawing.Size(850, 700);
+        //this.MinimumSize = new System.Drawing.Size(850, 700);
+        this.Size = new System.Drawing.Size(850, 700);
         base.Name = "MainForm";
         base.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
         this.Text = "Riverside-Irvine Microcontroller Simulator (RIMS)";
