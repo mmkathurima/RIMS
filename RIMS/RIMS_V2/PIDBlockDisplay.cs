@@ -210,7 +210,7 @@ public class PIDBlockDisplay : Form
 		this.SystemText.TabIndex = 8;
 		this.SystemText.Text = "System";
 		this.SystemText.Click += new System.EventHandler(SystemText_Click);
-		base.AutoScaleDimensions = new System.Drawing.SizeF(6f, 13f);
+		base.AutoScaleDimensions = new System.Drawing.SizeF(3f, 16f);
 		base.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 		this.AutoSize = true;
 		base.ClientSize = new System.Drawing.Size(590, 717);

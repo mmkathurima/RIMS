@@ -5884,12 +5884,15 @@ public class MainForm : Form
                     adjustInputToState("A6", actualB[2]);
                     adjustInputToState("A7", actualB[3]);
                     UpdateA_Value();
-                    pidBlockDisplay.actualTxt.Text = $"{actual:0}";
-                    pidBlockDisplay.actualInternalTxt.Text = $"{actual:0.00}";
-                    pidBlockDisplay.actuatorTxt.Text = $"{actuator:0.00}";
-                    if (timeCnt % 17 == 0)
+                    if (pidBlockDisplay != null)
                     {
-                        pidBlockDisplay.addPoint(timePassed, actual, desired);
+                        pidBlockDisplay.actualTxt.Text = $"{actual:0}";
+                        pidBlockDisplay.actualInternalTxt.Text = $"{actual:0.00}";
+                        pidBlockDisplay.actuatorTxt.Text = $"{actuator:0.00}";
+                        if (timeCnt % 17 == 0)
+                        {
+                            pidBlockDisplay.addPoint(timePassed, actual, desired);
+                        }
                     }
                 });
                 return actuator;
