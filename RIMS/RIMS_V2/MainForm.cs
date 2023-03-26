@@ -1624,14 +1624,14 @@ public class MainForm : Form
         base.Controls.Add(this.A6);
         base.Controls.Add(this.A7);
         base.Controls.Add(this.groupBox3);
-        //base.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-        base.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
+        base.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+        //base.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
         base.Icon = RIMS_V2_MainForm.Icon4;
         base.MainMenuStrip = this.menuStrip;
         base.MaximizeBox = false;
-        //this.MaximumSize = new System.Drawing.Size(850, 700);
-        //this.MinimumSize = new System.Drawing.Size(850, 700);
-        this.Size = new System.Drawing.Size(850, 700);
+        this.MaximumSize = new System.Drawing.Size(850, 700);
+        this.MinimumSize = new System.Drawing.Size(850, 700);
+        //this.Size = new System.Drawing.Size(850, 700);
         base.Name = "MainForm";
         base.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
         this.Text = "Riverside-Irvine Microcontroller Simulator (RIMS)";
@@ -2307,21 +2307,30 @@ public class MainForm : Form
 
     private void Terminal_OnCommandEntered(object sender, CommandEnteredEventArgs e)
     {
-        Process p = Process.Start(new ProcessStartInfo("cmd.exe")
+        switch (e.Command)
         {
-            Arguments = "/C " + e.Command,
-            RedirectStandardError = true,
-            RedirectStandardOutput = true,
-            UseShellExecute = false,
-            CreateNoWindow = true
-        });
-        string output = p.StandardOutput.ReadToEnd();
-        string error = p.StandardError.ReadToEnd();
-        p.WaitForExit();
-        if (output.Length != 0)
-            this.terminal.WriteText(output);
-        else if (error.Length != 0)
-            this.terminal.WriteText(error);
+            case "cls":
+            case "clear":
+                this.terminal.Clear();
+                break;
+            default:
+                Process p = Process.Start(new ProcessStartInfo("cmd.exe")
+                {
+                    Arguments = "/C " + e.Command,
+                    RedirectStandardError = true,
+                    RedirectStandardOutput = true,
+                    UseShellExecute = false,
+                    CreateNoWindow = true
+                });
+                string output = p.StandardOutput.ReadToEnd();
+                string error = p.StandardError.ReadToEnd();
+                p.WaitForExit();
+                if (output.Length != 0)
+                    this.terminal.WriteText(output);
+                else if (error.Length != 0)
+                    this.terminal.WriteText(error);
+                break;
+        }
     }
 
     private void MainForm_Load(object sender, EventArgs e)
