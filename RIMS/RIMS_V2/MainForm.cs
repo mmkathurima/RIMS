@@ -1562,7 +1562,7 @@ public class MainForm : Form
         this.useTestVectors.UseVisualStyleBackColor = true;
         this.useTestVectors.Click += new System.EventHandler(useTestVectors_Click);
         this.saveInputVectorFile.Filter = "Input vector files (*.txt)|*.txt*";
-        base.AutoScaleDimensions = new System.Drawing.SizeF(6f, 13f);
+        base.AutoScaleDimensions = new System.Drawing.SizeF(6f, 16f);
         base.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
         this.AutoSize = true;
         //base.ClientSize = new System.Drawing.Size(844, 697);
@@ -1629,8 +1629,8 @@ public class MainForm : Form
         base.Icon = RIMS_V2_MainForm.Icon4;
         base.MainMenuStrip = this.menuStrip;
         base.MaximizeBox = false;
-        this.MaximumSize = new System.Drawing.Size(850, 700);
-        this.MinimumSize = new System.Drawing.Size(850, 700);
+        //this.MaximumSize = new System.Drawing.Size(850, 700);
+        //this.MinimumSize = new System.Drawing.Size(850, 700);
         //this.Size = new System.Drawing.Size(850, 700);
         base.Name = "MainForm";
         base.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
@@ -2298,11 +2298,11 @@ public class MainForm : Form
 
     private void InitSize()
     {
-        this.Size = this.MaximumSize = new Size(this.Width, this.Height - 100);
-        this.terminal.Size = this.terminal.MaximumSize = new System.Drawing.Size(this.terminal.Width, 160);
-        this.groupBox5.Size = this.groupBox5.MaximumSize = new System.Drawing.Size(this.groupBox5.Width, 202);
-        this.SymbolsList.Size = this.SymbolsList.MaximumSize = new System.Drawing.Size(this.SymbolsList.Width, 160);
-        this.groupBox7.Size = this.groupBox7.MaximumSize = new System.Drawing.Size(this.groupBox7.Width, 170);
+        this.Size = this.MaximumSize = new Size(this.Width, this.Height - 20);
+        this.terminal.Size = this.terminal.MaximumSize = new System.Drawing.Size(this.terminal.Width, this.terminal.Height - 20);
+        this.groupBox5.Size = this.groupBox5.MaximumSize = new System.Drawing.Size(this.groupBox5.Width, this.groupBox5.Height - 20);
+        this.SymbolsList.Size = this.SymbolsList.MaximumSize = new System.Drawing.Size(this.SymbolsList.Width, this.SymbolsList.Height - 20);
+        this.groupBox7.Size = this.groupBox7.MaximumSize = new System.Drawing.Size(this.groupBox7.Width, this.groupBox7.Height - 20);
     }
 
     private void Terminal_OnCommandEntered(object sender, CommandEnteredEventArgs e)
@@ -2337,7 +2337,7 @@ public class MainForm : Form
     {
         CodeBox.MarginClick += CodeBox_MarginClick;
         this.terminal.CommandEntered += new EventCommandEntered(Terminal_OnCommandEntered);
-        InitSize();
+        //InitSize();
     }
 
     private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
