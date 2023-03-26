@@ -1882,6 +1882,7 @@ public class MainForm : Form
             }
             VMInterface.SetBaseDirectory(vm.vm, location);
             VMInterface.SetFilename(vm.vm, path);
+        COMPILE:
             int num3 = VMInterface.Compile(vm.vm);
             IntPtr intPtr = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(ErrorStruct)));
             byte* ptr = (byte*)intPtr.ToPointer();
@@ -1900,8 +1901,13 @@ public class MainForm : Form
 
                 try
                 {
-                    MessageBox.Show("There were errors while compiling the generated C code.\r\nRe-check your state machine for errors.  If you cannot find any errors and believe this is a bug, please see programmingembeddedsystems.com for an email address to report RI tool bugs.\r\n****************************************\r\n" + text3 + "****************************************", "Compilation error(s).", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-                    Environment.Exit(1);
+                    if (text3.ToLower().Contains(@"could not find include file ""rims.h"""))
+                        goto COMPILE;
+                    else
+                    {
+                        MessageBox.Show("There were errors while compiling the generated C code.\r\nRe-check your state machine for errors.  If you cannot find any errors and believe this is a bug, please see programmingembeddedsystems.com for an email address to report RI tool bugs.\r\n****************************************\r\n" + text3 + "****************************************", "Compilation error(s).", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                        Environment.Exit(1);
+                    }
                 }
                 catch (Exception)
                 {
@@ -1931,7 +1937,7 @@ public class MainForm : Form
                 Environment.Exit(-1);
             }
             state_var_map = new Dictionary<string, int>();
-            List<string> list = text.Substring("/state_vars:".Length).Split(',').ToList();
+            List<string> list = text["/state_vars:".Length..].Split(',').ToList();
             list.RemoveAll((string a) => a.Length == 0);
             for (int m = 0; m < list.Count; m++)
             {
@@ -2307,7 +2313,7 @@ public class MainForm : Form
 
     private void Terminal_OnCommandEntered(object sender, CommandEnteredEventArgs e)
     {
-        switch (e.Command)
+        switch (e.Command.ToLower())
         {
             case "cls":
             case "clear":
@@ -2550,7 +2556,7 @@ public class MainForm : Form
             SymbolsList.Items.Add(listViewItem);
         }
         Debug.WriteLine(terminal.ShellText.ToUpper());
-        if (terminal.ShellText.Contains(@"Could not find include file ""rims.h""", StringComparison.InvariantCultureIgnoreCase))
+        if (terminal.ShellText.ToLower().Contains(@"could not find include file ""rims.h""", StringComparison.InvariantCultureIgnoreCase))
         {
             terminal.Clear();
             DoCompile();
@@ -3066,7 +3072,10 @@ public class MainForm : Form
         }
         catch (Exception e)
         {
-            MessageBox.Show(owner: this, text: e.ToString(), this.Text);
+            if (e is ArgumentOutOfRangeException)
+                ;
+            else
+                MessageBox.Show(owner: this, text: e.ToString(), this.Text);
         }
     }
 
