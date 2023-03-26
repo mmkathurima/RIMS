@@ -684,7 +684,7 @@ public class RIBS : Form
         this.groupBox1.TabStop = false;
         this.groupBox1.Text = "Variables and functions";
         this.LocalCode_TextBox.Font = new System.Drawing.Font("Times New Roman", 9.75f, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-        this.LocalCode_TextBox.Location = new System.Drawing.Point(4, 14);
+        this.LocalCode_TextBox.Location = new System.Drawing.Point(4, 16);
         this.LocalCode_TextBox.Multiline = true;
         this.LocalCode_TextBox.Name = "LocalCode_TextBox";
         this.LocalCode_TextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -936,7 +936,7 @@ public class RIBS : Form
         //base.ClientSize = new System.Drawing.Size(1008, 700);
         //this.MinimumSize = new Size(1000, 700);
         //this.MaximumSize = new Size(1000, 700);
-        this.Size = new Size(1000, 800);
+        this.Size = new Size(1020, 800);
         base.Controls.Add(this.label14);
         base.Controls.Add(this.smType);
         base.Controls.Add(this.label4);
@@ -950,12 +950,12 @@ public class RIBS : Form
         base.Controls.Add(this.menuStrip1);
         base.Controls.Add(this.globaluartcheckbox);
         this.DoubleBuffered = true;
+        this.FormBorderStyle = FormBorderStyle.FixedSingle;
         base.Icon = (System.Drawing.Icon)resources.GetObject("MainIcon");
         base.MainMenuStrip = this.menuStrip1;
         base.MaximizeBox = false;
         base.Name = "RIBS";
         base.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-        this.Text = "Riverside-Irvine Builder: Statemachines";
         base.Activated += new System.EventHandler(MainForm_Activated);
         base.FormClosing += new System.Windows.Forms.FormClosingEventHandler(RIBS_FormClosing);
         base.Paint += new System.Windows.Forms.PaintEventHandler(MainForm_Paint);
@@ -1043,6 +1043,7 @@ public class RIBS : Form
         MacroCode_Textbox.Enabled = graph.Count > 1;
         MacroCode_Textbox.ReadOnly = graph.Count <= 1;
         groupBox1.Text = "Variables and functions";
+        this.Text = "Riverside-Irvine Builder of State Machines";
         StateMachineName_Textbox.TextChanged += StateMachineName_Textbox_TextChanged;
         StateMachinePeriod_Textbox.TextChanged += StateMachinePeriod_Textbox_TextChanged;
         StateMachinePrefix_Textbox.TextChanged += StateMachinePrefix_Textbox_TextChanged;
@@ -2924,7 +2925,7 @@ public class RIBS : Form
         {
             lock (graphic)
             {
-                currentNode.IsCurrentNode= false;
+                currentNode.IsCurrentNode = false;
                 currentNode.Draw(graphic.Graphics);
             }
         }

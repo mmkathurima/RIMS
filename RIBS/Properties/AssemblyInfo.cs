@@ -7,7 +7,7 @@ using System.Security.Permissions;
 
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Riverside-Irvine Builder: Statemachines")]
+[assembly: AssemblyProduct("Riverside-Irvine Builder of State Machines")]
 [assembly: AssemblyFileVersion("2.9.3")]
 [assembly: AssemblyTitle("RIBS")]
 [assembly: AssemblyDescription("")]

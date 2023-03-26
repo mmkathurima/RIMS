@@ -49,7 +49,7 @@ public class About : Form
 		this.label1.Name = "label1";
 		this.label1.Size = new System.Drawing.Size(191, 13);
 		this.label1.TabIndex = 1;
-		this.label1.Text = "Riverside-Irvine Builder: Statemachines";
+		this.label1.Text = "Riverside-Irvine Builder of State Machines";
 		this.label2.AutoSize = true;
 		this.label2.Cursor = System.Windows.Forms.Cursors.IBeam;
 		this.label2.Location = new System.Drawing.Point(12, 35);
