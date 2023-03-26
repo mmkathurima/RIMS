@@ -15,4 +15,4 @@ using System.Security.Permissions;
 [assembly: AssemblyCopyright("Copyright © 2008 - 2013")]
 [assembly: AssemblyTrademark("")]
 [assembly: ComVisible(false)]
-[assembly: AssemblyVersion("2.9.2.0")]
+[assembly: AssemblyVersion("2.9.2.3")]
