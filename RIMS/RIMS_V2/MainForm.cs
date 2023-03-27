@@ -2427,6 +2427,7 @@ public class MainForm : Form
 
     private unsafe bool DoCompile()
     {
+        DOCOMPILE:
         bool flag = true;
         peripherals.RegisterPeripheralsWithVM(vm);
         string location = Assembly.GetExecutingAssembly().Location;
@@ -2559,7 +2560,7 @@ public class MainForm : Form
         if (terminal.ShellText.ToLower().Contains(@"could not find include file ""rims.h""", StringComparison.InvariantCultureIgnoreCase))
         {
             terminal.Clear();
-            DoCompile();
+            goto DOCOMPILE;
         }
         return flag;
     }
