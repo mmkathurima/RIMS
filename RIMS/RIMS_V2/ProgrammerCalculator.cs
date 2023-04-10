@@ -16,7 +16,6 @@ namespace RIMS_V2;
 public partial class ProgrammerCalculator : Form
 {
     private bool handled = false;
-    private int brckts = 0;
 
     public ProgrammerCalculator()
     {

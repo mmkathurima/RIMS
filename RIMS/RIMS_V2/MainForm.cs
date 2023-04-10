@@ -484,6 +484,7 @@ public class MainForm : Form
     private bool sevenSegmentShown = false, dialShown = false, programmerCalcShown = false;
     private KnobControl dialKnob;
     private ProgrammerCalculator programmerCalculator;
+    private string keywords = "auto break case char const continue default do double else enum extern float for goto if int long register return short signed sizeof static struct switch typedef union unsigned void volatile while";
 
     protected override void Dispose(bool disposing)
     {
@@ -2341,8 +2342,14 @@ public class MainForm : Form
 
     private void MainForm_Load(object sender, EventArgs e)
     {
-        CodeBox.MarginClick += CodeBox_MarginClick;
         this.terminal.CommandEntered += new EventCommandEntered(Terminal_OnCommandEntered);
+
+        this.CodeBox.MarginClick += CodeBox_MarginClick;
+        this.CodeBox.Lexing.SetKeywords(0, this.keywords);
+        this.CodeBox.Lexing.SetKeywords(1, "bool");
+        this.CodeBox.AutoComplete.ListString = this.keywords;
+        this.CodeBox.AutoComplete.List = this.keywords.Split(' ').ToList();
+        //this.CodeBox.CharAdded += CodeBoxCharAdded;
         //InitSize();
     }
 
@@ -2388,6 +2395,16 @@ public class MainForm : Form
         }
     }
 
+    private void CodeBoxCharAdded(object sender, CharAddedEventArgs e)
+    {
+        if (e.Ch == '\n')
+        {
+            string word = this.CodeBox.GetWordFromPosition(this.CodeBox.CurrentPos);
+            CodeBox.AutoComplete.ShowUserList(word.Length, this.keywords.Split(' ').ToList());
+            CodeBox.AutoComplete.ShowUserList(word.Length, this.keywords.Split(' ').ToList());
+        }
+    }
+
     private void Compile_Click(object sender, EventArgs e)
     {
         if (SaveCode.FileName.Length == 0)
@@ -2427,7 +2444,7 @@ public class MainForm : Form
 
     private unsafe bool DoCompile()
     {
-        DOCOMPILE:
+    DOCOMPILE:
         bool flag = true;
         peripherals.RegisterPeripheralsWithVM(vm);
         string location = Assembly.GetExecutingAssembly().Location;
