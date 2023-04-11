@@ -484,7 +484,7 @@ public class MainForm : Form
     private bool sevenSegmentShown = false, dialShown = false, programmerCalcShown = false;
     private KnobControl dialKnob;
     private ProgrammerCalculator programmerCalculator;
-    private string keywords = "auto break case char const continue default do double else enum extern float for goto if int long register return short signed sizeof static struct switch typedef union unsigned void volatile while";
+    private readonly string keywords = "auto break case char const continue default do double else enum extern float for goto if int long register return short signed sizeof static struct switch typedef union unsigned void volatile while";
 
     protected override void Dispose(bool disposing)
     {
@@ -2145,6 +2145,13 @@ public class MainForm : Form
             else this.dialFrm?.Focus();
         };
         this.inputsToolStripMenuItem.DropDownItems.Add(dialToolStripMenuItem);
+
+        this.CodeBox.MarginClick += CodeBox_MarginClick;
+        this.CodeBox.Lexing.SetKeywords(0, this.keywords);
+        this.CodeBox.Lexing.SetKeywords(1, "bool false true");
+        this.CodeBox.AutoComplete.ListString = this.keywords;
+        this.CodeBox.AutoComplete.List = this.keywords.Split(' ').ToList();
+        //this.CodeBox.CharAdded += CodeBoxCharAdded;
     }
 
     public MainForm()
@@ -2343,13 +2350,6 @@ public class MainForm : Form
     private void MainForm_Load(object sender, EventArgs e)
     {
         this.terminal.CommandEntered += new EventCommandEntered(Terminal_OnCommandEntered);
-
-        this.CodeBox.MarginClick += CodeBox_MarginClick;
-        this.CodeBox.Lexing.SetKeywords(0, this.keywords);
-        this.CodeBox.Lexing.SetKeywords(1, "bool");
-        this.CodeBox.AutoComplete.ListString = this.keywords;
-        this.CodeBox.AutoComplete.List = this.keywords.Split(' ').ToList();
-        //this.CodeBox.CharAdded += CodeBoxCharAdded;
         //InitSize();
     }
 
