@@ -484,7 +484,7 @@ public class MainForm : Form
     private bool sevenSegmentShown = false, dialShown = false, programmerCalcShown = false;
     private KnobControl dialKnob;
     private ProgrammerCalculator programmerCalculator;
-    private readonly string keywords = "auto break case char const continue default do double else enum extern float for goto if int long register return short signed sizeof static struct switch typedef union unsigned void volatile while";
+    private readonly string keywords = "auto bool break case char const continue default do double else enum extern false float for goto if inline int long register return short signed sizeof static struct switch true typedef union unsigned void volatile while";
 
     protected override void Dispose(bool disposing)
     {
@@ -2148,7 +2148,7 @@ public class MainForm : Form
 
         this.CodeBox.MarginClick += CodeBox_MarginClick;
         this.CodeBox.Lexing.SetKeywords(0, this.keywords);
-        this.CodeBox.Lexing.SetKeywords(1, "bool false true");
+        this.CodeBox.Lexing.SetKeywords(1, string.Empty);
         this.CodeBox.AutoComplete.ListString = this.keywords;
         this.CodeBox.AutoComplete.List = this.keywords.Split(' ').ToList();
         //this.CodeBox.CharAdded += CodeBoxCharAdded;
