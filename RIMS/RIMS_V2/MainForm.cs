@@ -2989,6 +2989,8 @@ public class MainForm : Form
                     //mciSendString("play Song1 REPEAT", null, 0, IntPtr.Zero);
                     players[1].currentPlaylist.appendItem(players[1].newMedia(Path.Join(Path.GetTempPath(), "song1.mp3")));
                     players[1].controls.play();
+                    
+                    sound_flags[1] = 1;
                 }
             }
             else
@@ -3004,6 +3006,8 @@ public class MainForm : Form
                     //mciSendString("play Song2 REPEAT", null, 0, IntPtr.Zero);
                     players[2].currentPlaylist.appendItem(players[2].newMedia(Path.Join(Path.GetTempPath(), "song2.mp3")));
                     players[2].controls.play();
+
+                    sound_flags[2] = 1;
                 }
             }
             else
@@ -3019,6 +3023,8 @@ public class MainForm : Form
                     //mciSendString("play Song3 REPEAT", null, 0, IntPtr.Zero);
                     players[3].currentPlaylist.appendItem(players[3].newMedia(Path.Join(Path.GetTempPath(), "song3.mp3")));
                     players[3].controls.play();
+
+                    sound_flags[3] = 1;
                 }
             }
             else
@@ -3034,6 +3040,8 @@ public class MainForm : Form
                     //mciSendString("play Song4 REPEAT", null, 0, IntPtr.Zero);
                     players[4].currentPlaylist.appendItem(players[4].newMedia(Path.Join(Path.GetTempPath(), "song4.mp3")));
                     players[4].controls.play();
+
+                    sound_flags[4] = 1;
                 }
             }
             else
@@ -3049,6 +3057,8 @@ public class MainForm : Form
                     //mciSendString("play Song5 REPEAT", null, 0, IntPtr.Zero);
                     players[5].currentPlaylist.appendItem(players[5].newMedia(Path.Join(Path.GetTempPath(), "song5.mp3")));
                     players[5].controls.play();
+
+                    sound_flags[5] = 1;
                 }
             }
             else
@@ -3064,6 +3074,8 @@ public class MainForm : Form
                     //mciSendString("play Song6 REPEAT", null, 0, IntPtr.Zero);
                     players[6].currentPlaylist.appendItem(players[6].newMedia(Path.Join(Path.GetTempPath(), "song6.mp3")));
                     players[6].controls.play();
+
+                    sound_flags[6] = 1;
                 }
             }
             else
@@ -3079,6 +3091,8 @@ public class MainForm : Form
                     //mciSendString("play Song7 REPEAT", null, 0, IntPtr.Zero);
                     players[7].currentPlaylist.appendItem(players[7].newMedia(Path.Join(Path.GetTempPath(), "song7.mp3")));
                     players[7].controls.play();
+
+                    sound_flags[7] = 1;
                 }
             }
             else

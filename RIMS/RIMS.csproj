@@ -85,13 +85,13 @@
 		<None Remove="RIMS_V2.resources.EULA.rtf" />
 		<None Remove="RIMS_V2.resources.fan.bmp" />
 		<COMReference Include="WMPLib">
-			<WrapperTool>tlbimp</WrapperTool>
-			<VersionMinor>0</VersionMinor>
-			<VersionMajor>1</VersionMajor>
-			<Guid>6bf52a50-394a-11d3-b153-00c04f79faa6</Guid>
-			<Lcid>0</Lcid>
-			<Isolated>false</Isolated>
-			<EmbedInteropTypes>true</EmbedInteropTypes>
+		  <WrapperTool>tlbimp</WrapperTool>
+		  <VersionMinor>0</VersionMinor>
+		  <VersionMajor>1</VersionMajor>
+		  <Guid>6bf52a50-394a-11d3-b153-00c04f79faa6</Guid>
+		  <Lcid>0</Lcid>
+		  <Isolated>false</Isolated>
+		  <EmbedInteropTypes>true</EmbedInteropTypes>
 		</COMReference>
 		<Content Include="app.ico" />
 		<EmbeddedResource Include="RIMS_V2.songs.song1.wav" />
@@ -179,6 +179,7 @@
 		<PackageReference Include="Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers" Version="0.4.355802">
 			<PrivateAssets>all</PrivateAssets>
 		</PackageReference>
+		<PackageReference Include="NAudio" Version="2.1.0" />
 		<PackageReference Include="System.Windows.Forms.DataVisualization" Version="1.0.0-prerelease.20110.1" />
 		<PackageReference Include="Microsoft.Windows.Compatibility" Version="7.0.0" />
 	</ItemGroup>

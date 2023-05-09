@@ -542,7 +542,7 @@ public class RITS : Form
 
 	private void aboutToolStripMenuItem1_Click(object sender, EventArgs e)
 	{
-		popup popup2 = new popup();
+		About popup2 = new About();
 		popup2.Show();
 	}
 

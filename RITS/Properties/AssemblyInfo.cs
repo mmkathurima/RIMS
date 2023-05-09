@@ -14,5 +14,5 @@ using System.Security.Permissions;
 [assembly: AssemblyTitle("RITS")]
 [assembly: ComVisible(false)]
 [assembly: Guid("fc231797-7c83-4aae-a128-5ca2dd27fa34")]
-[assembly: AssemblyFileVersion("2.9.4")]
-[assembly: AssemblyVersion("2.9.4")]
+[assembly: AssemblyFileVersion("2.9.5")]
+[assembly: AssemblyVersion("2.9.5")]

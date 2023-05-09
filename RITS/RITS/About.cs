@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace RITS;
 
-internal class popup : Form
+internal class About : Form
 {
     private IContainer components;
 
@@ -100,7 +100,7 @@ internal class popup : Form
 
     private void InitializeComponent()
     {
-        System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(popup));
+        System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(About));
         this.label1 = new System.Windows.Forms.Label();
         this.richTextBox1 = new System.Windows.Forms.RichTextBox();
         this.ok = new System.Windows.Forms.Button();
@@ -137,7 +137,7 @@ internal class popup : Form
         base.MinimizeBox = false;
         this.MinimumSize = new System.Drawing.Size(300, 350);
         this.FormBorderStyle = FormBorderStyle.FixedDialog;
-        base.Name = "popup";
+        base.Name = "About";
         base.Padding = new System.Windows.Forms.Padding(9);
         base.ShowIcon = false;
         base.ShowInTaskbar = false;
@@ -148,7 +148,7 @@ internal class popup : Form
         base.PerformLayout();
     }
 
-    public popup()
+    public About()
     {
         InitializeComponent();
     }
