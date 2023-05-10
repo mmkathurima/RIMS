@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace RIBS_V3;
 
-public class warning : Form
+public class Warning : Form
 {
 	private IContainer components;
 
@@ -24,7 +24,7 @@ public class warning : Form
 
 	private void InitializeComponent()
 	{
-		System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RIBS_V3.warning));
+		System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RIBS_V3.Warning));
 		this.richTextBox1 = new System.Windows.Forms.RichTextBox();
 		this.button1 = new System.Windows.Forms.Button();
 		base.SuspendLayout();
@@ -47,12 +47,12 @@ public class warning : Form
 		base.Controls.Add(this.button1);
 		base.Controls.Add(this.richTextBox1);
 		base.Icon = (System.Drawing.Icon)resources.GetObject("MainIcon");
-		base.Name = "warning";
+		base.Name = "Warning";
 		this.Text = "Warning";
 		base.ResumeLayout(false);
 	}
 
-	public warning()
+	public Warning()
 	{
 		InitializeComponent();
 	}

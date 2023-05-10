@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace RIBS_V3;
 
-public class abbreviationrepeat : Form
+public class AbbreviationRepeat : Form
 {
 	private IContainer components;
 
@@ -24,7 +24,7 @@ public class abbreviationrepeat : Form
 
 	private void InitializeComponent()
 	{
-		System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RIBS_V3.abbreviationrepeat));
+		System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RIBS_V3.AbbreviationRepeat));
 		this.richTextBox1 = new System.Windows.Forms.RichTextBox();
 		this.button1 = new System.Windows.Forms.Button();
 		base.SuspendLayout();
@@ -47,12 +47,12 @@ public class abbreviationrepeat : Form
 		base.Controls.Add(this.button1);
 		base.Controls.Add(this.richTextBox1);
 		base.Icon = (System.Drawing.Icon)resources.GetObject("MainIcon");
-		base.Name = "abbreviationrepeat";
+		base.Name = "AbbreviationRepeat";
 		this.Text = "Error - Repeated Abbreviation";
 		base.ResumeLayout(false);
 	}
 
-	public abbreviationrepeat()
+	public AbbreviationRepeat()
 	{
 		InitializeComponent();
 	}

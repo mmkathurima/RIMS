@@ -212,9 +212,9 @@ public class RIBS : Form
 
     private EmptyStateMachineWarning emptystatemachinewarning;
 
-    private abbreviationrepeat abbreviationrepeat;
+    private AbbreviationRepeat abbreviationrepeat;
 
-    private warning warning;
+    private Warning warning;
 
     private Feedback feedback;
 
@@ -996,11 +996,11 @@ public class RIBS : Form
         graphic.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
         graphic.Graphics.FillRectangle(Brushes.White, backgroundpanel.ClientRectangle.X, backgroundpanel.ClientRectangle.Y, backgroundpanel.ClientRectangle.Width * 2, backgroundpanel.ClientRectangle.Height * 2);
         about = new About();
-        warning = new warning();
+        warning = new Warning();
         feedback = new Feedback();
         simulator = new Process();
         emptystatemachinewarning = new EmptyStateMachineWarning();
-        abbreviationrepeat = new abbreviationrepeat();
+        abbreviationrepeat = new AbbreviationRepeat();
         ReservedNames = new ReservedNames();
         documents_directory = Environment.GetFolderPath(Environment.SpecialFolder.Personal) + "\\RIMS\\";
         if (!Directory.Exists(documents_directory))

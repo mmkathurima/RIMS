@@ -2328,21 +2328,24 @@ public class MainForm : Form
                 this.terminal.Clear();
                 break;
             default:
-                Process p = Process.Start(new ProcessStartInfo("cmd.exe")
+                if (!running)
                 {
-                    Arguments = "/C " + e.Command,
-                    RedirectStandardError = true,
-                    RedirectStandardOutput = true,
-                    UseShellExecute = false,
-                    CreateNoWindow = true
-                });
-                string output = p.StandardOutput.ReadToEnd();
-                string error = p.StandardError.ReadToEnd();
-                p.WaitForExit();
-                if (output.Length != 0)
-                    this.terminal.WriteText(output);
-                else if (error.Length != 0)
-                    this.terminal.WriteText(error);
+                    Process p = Process.Start(new ProcessStartInfo("cmd.exe")
+                    {
+                        Arguments = "/C " + e.Command,
+                        RedirectStandardError = true,
+                        RedirectStandardOutput = true,
+                        UseShellExecute = false,
+                        CreateNoWindow = true
+                    });
+                    string output = p.StandardOutput.ReadToEnd();
+                    string error = p.StandardError.ReadToEnd();
+                    p.WaitForExit();
+                    if (output.Length != 0)
+                        this.terminal.WriteText(output);
+                    else if (error.Length != 0)
+                        this.terminal.WriteText(error);
+                }
                 break;
         }
     }
@@ -2989,7 +2992,7 @@ public class MainForm : Form
                     //mciSendString("play Song1 REPEAT", null, 0, IntPtr.Zero);
                     players[1].currentPlaylist.appendItem(players[1].newMedia(Path.Join(Path.GetTempPath(), "song1.mp3")));
                     players[1].controls.play();
-                    
+
                     sound_flags[1] = 1;
                 }
             }
@@ -3332,13 +3335,9 @@ public class MainForm : Form
         {
             sb.EnsureCapacity((int)numDebugCharsWaiting);
             VMInterface.GetNextDebugBuffer(vm.vm, sb, numDebugCharsWaiting);
-            try
-            {
-                terminal.WriteText(sb.ToString()[..(int)numDebugCharsWaiting]);
-            }
-            catch
-            {
-            }
+            string sbs = sb.ToString();
+            terminal.WriteText(sbs[..((((int)numDebugCharsWaiting) >= sbs.Length) ? ((sbs.Length - 1) < 0 ? 0 : sbs.Length - 1)
+                : (int)numDebugCharsWaiting)]);
         }
     }
 
