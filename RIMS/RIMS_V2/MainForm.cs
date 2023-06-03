@@ -1627,7 +1627,7 @@ public class MainForm : Form
         base.Controls.Add(this.groupBox3);
         base.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
         //base.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
-        base.Icon = RIMS_V2_MainForm.Icon4;
+        base.Icon = RIMS_V2_MainForm.MainIcon;
         base.MainMenuStrip = this.menuStrip;
         base.MaximizeBox = false;
         //this.MaximumSize = new System.Drawing.Size(850, 700);
@@ -1708,7 +1708,7 @@ public class MainForm : Form
     public unsafe MainForm(string[] args)
     {
         InitializeComponent();
-        Text = "Riverside-Irvine Microcontroller Simulator (Instance: " + RIMSProcessInfo.GetNewRIMSName() + ")";
+        Text = "Riverside-Irvine Microcontroller Simulator (Instance: " + RIMSProcessInfo.NewRIMSName + ")";
         arguments = args;
         int num = -1;
         string path = string.Empty;
@@ -4113,7 +4113,7 @@ public class MainForm : Form
     {
         Samples samples = new Samples();
         samples.ShowDialog();
-        string resourceName = samples.GetResourceName();
+        string resourceName = samples.ResourceName;
         if (resourceName.Length == 0)
         {
             return;

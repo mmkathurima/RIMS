@@ -84,16 +84,19 @@ public class Samples : Form
 		Close();
 	}
 
-	public string GetResourceName()
-	{
-		if (sampleslist.SelectedIndex >= 0)
-		{
-			return samples[sampleslist.SelectedIndex];
-		}
-		return "";
-	}
+    public string ResourceName
+    {
+        get
+        {
+            if (sampleslist.SelectedIndex >= 0)
+            {
+                return samples[sampleslist.SelectedIndex];
+            }
+            return "";
+        }
+    }
 
-	private void sampleslist_DoubleClick(object sender, EventArgs e)
+    private void sampleslist_DoubleClick(object sender, EventArgs e)
 	{
 		Close();
 	}

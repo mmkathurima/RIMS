@@ -223,36 +223,6 @@ public class RIMS_V2_MainForm {
     /// <summary>
     ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
     /// </summary>
-    public static System.Drawing.Icon favicon {
-        get {
-            object obj = ResourceManager.GetObject("favicon", resourceCulture);
-            return ((System.Drawing.Icon)(obj));
-        }
-    }
-    
-    /// <summary>
-    ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
-    /// </summary>
-    public static System.Drawing.Icon Icon3 {
-        get {
-            object obj = ResourceManager.GetObject("Icon3", resourceCulture);
-            return ((System.Drawing.Icon)(obj));
-        }
-    }
-    
-    /// <summary>
-    ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
-    /// </summary>
-    public static System.Drawing.Icon Icon4 {
-        get {
-            object obj = ResourceManager.GetObject("Icon4", resourceCulture);
-            return ((System.Drawing.Icon)(obj));
-        }
-    }
-    
-    /// <summary>
-    ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
-    /// </summary>
     public static System.Drawing.Icon MainIcon {
         get {
             object obj = ResourceManager.GetObject("MainIcon", resourceCulture);

@@ -709,7 +709,7 @@ internal class LoadFromC
 
 	private void buildSM()
 	{
-		ribsRef.setPeriod(SMs[currentSM].period);
+		ribsRef.SetPeriod(SMs[currentSM].period);
 		ribsRef.setUartSMType(SMs[currentSM].uartEnabled, SMs[currentSM].async);
 		if (SMs[currentSM].locals != string.Empty && SMs.Count > 1)
 		{
@@ -756,7 +756,7 @@ internal class LoadFromC
 				{
 					if (SMs[currentSM].stateType[stateTran.Key] == "for")
 					{
-						ribsRef.setForEdge(stateTran.Key, SMs[currentSM].stateFor[stateTran.Key]["initial"], SMs[currentSM].stateFor[stateTran.Key]["condition"], SMs[currentSM].stateFor[stateTran.Key]["update"]);
+						ribsRef.SetForEdge(stateTran.Key, SMs[currentSM].stateFor[stateTran.Key]["initial"], SMs[currentSM].stateFor[stateTran.Key]["condition"], SMs[currentSM].stateFor[stateTran.Key]["update"]);
 					}
 				}
 				else if (SMs[currentSM].stateTransHandles.Keys.Contains(stateTran.Key) && SMs[currentSM].stateTransHandles[stateTran.Key].Keys.Contains(item.Key))
@@ -770,7 +770,7 @@ internal class LoadFromC
 			}
 			if (SMs[currentSM].stateType[stateTran.Key] == "ifelse")
 			{
-				ribsRef.setIfElseEdge(stateTran.Key);
+				ribsRef.SetIfElseEdge(stateTran.Key);
 			}
 		}
 	}

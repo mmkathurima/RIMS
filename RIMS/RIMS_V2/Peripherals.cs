@@ -79,7 +79,7 @@ public class Peripherals
 		IntPtr intPtr = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(SymbolRecord)));
 		foreach (Peripheral peripheral in peripherals)
 		{
-			List<SymbolInfo> symbolUpdates = peripheral.GetSymbolUpdates();
+			List<SymbolInfo> symbolUpdates = peripheral.SymbolUpdates;
 			foreach (SymbolInfo item in symbolUpdates)
 			{
 				int symbolIndex = VMInterface.GetSymbolIndex(vm.vm, item.name);

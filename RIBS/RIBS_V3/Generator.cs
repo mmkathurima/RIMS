@@ -104,7 +104,7 @@ internal class Generator
 		{
 			output += "UARTOn();\r\n\r\n";
 		}
-		if (graph.GetInitialStateName().Length != 0)
+		if (graph.InitialStateName.Length != 0)
 		{
 			output = output + "\r\n   " + graph.Abbrv + "_State = -1; // Initial state\r\n   ";
 			output += "B = 0; // Init outputs\r\n\r\n   ";
@@ -142,12 +142,12 @@ internal class Generator
 		bool flag = false;
 		text = text + "switch(" + graph.Abbrv + "_State) { // Transitions\r\n   ";
 		text += "   case -1:\r\n";
-		if (graph.initedge.GetActions() != "")
+		if (graph.initedge.Actions != "")
 		{
-			text = text + "         " + graph.initedge.GetActions().Replace("\n", "\r\n         ") + "\r\n";
+			text = text + "         " + graph.initedge.Actions.Replace("\n", "\r\n         ") + "\r\n";
 		}
 		string text6 = text;
-		text = text6 + "         " + graph.Abbrv + "_State = " + graph.Abbrv + "_" + graph.GetInitialStateName() + ";\r\n         break;\r\n      ";
+		text = text6 + "         " + graph.Abbrv + "_State = " + graph.Abbrv + "_" + graph.InitialStateName + ";\r\n         break;\r\n      ";
 		foreach (Node node in graph.nodes)
 		{
 			if (node.Name == "NONAME")
@@ -169,12 +169,12 @@ internal class Generator
 				int num2 = 1;
 				foreach (Edge edge in graph.edges)
 				{
-					if (edge.GetCondition().Length == 0)
+					if (edge.Condition.Length == 0)
 					{
-						MessageBox.Show("Error: Empty condition in transition from state " + edge.GetT().Name, "Error");
+						MessageBox.Show("Error: Empty condition in transition from state " + edge.T.Name, "Error");
 						return "";
 					}
-					if (edge.GetT() == node)
+					if (edge.T == node)
 					{
 						num2++;
 					}
@@ -184,27 +184,27 @@ internal class Generator
 					foreach (Edge edge2 in graph.edges)
 					{
 						bool flag3 = false;
-						if (edge2.GetT() == node)
+						if (edge2.T == node)
 						{
-							if (edge2.GetCondition().ToLower() != "other")
+							if (edge2.Condition.ToLower() != "other")
 							{
-								if (edge2.GetPriority() == CPriority && CPriority == 1)
+								if (edge2.Priority == CPriority && CPriority == 1)
 								{
 									string text8 = text;
-									text = text8 + "\r\n         if (" + edge2.GetCondition() + ") {\r\n            " + graph.Abbrv + "_State = " + graph.Abbrv + "_" + edge2.GetH().Name + ";";
+									text = text8 + "\r\n         if (" + edge2.Condition + ") {\r\n            " + graph.Abbrv + "_State = " + graph.Abbrv + "_" + edge2.H.Name + ";";
 									CPriority++;
 									flag3 = true;
 								}
-								else if (edge2.GetPriority() == CPriority)
+								else if (edge2.Priority == CPriority)
 								{
 									string text9 = text;
-									text = text9 + "\r\n         else if (" + edge2.GetCondition() + ") {\r\n            " + graph.Abbrv + "_State = " + graph.Abbrv + "_" + edge2.GetH().Name + ";";
+									text = text9 + "\r\n         else if (" + edge2.Condition + ") {\r\n            " + graph.Abbrv + "_State = " + graph.Abbrv + "_" + edge2.H.Name + ";";
 									CPriority++;
 									flag3 = true;
 								}
-								if (edge2.GetActions().Length > 0 && flag3)
+								if (edge2.Actions.Length > 0 && flag3)
 								{
-									text = text + "\r\n            " + edge2.GetActions().Replace("\n", "\r\n            ") + "\r\n         }";
+									text = text + "\r\n            " + edge2.Actions.Replace("\n", "\r\n            ") + "\r\n         }";
 								}
 								else if (flag3)
 								{
@@ -230,9 +230,9 @@ internal class Generator
 			{
 				foreach (Edge edge3 in graph.edges)
 				{
-					if (edge3.GetCondition().Length == 0)
+					if (edge3.Condition.Length == 0)
 					{
-						MessageBox.Show("Error: Empty condition in transition from state " + edge3.GetT().Name, "Error");
+						MessageBox.Show("Error: Empty condition in transition from state " + edge3.T.Name, "Error");
 						return "";
 					}
 					if (node.forloop_enabled && !flag)
@@ -241,14 +241,14 @@ internal class Generator
 						text = text10 + "\r\n         if (" + node.loop.condition_cvar + ") {\r\n            " + graph.Abbrv + "_State = " + graph.Abbrv + "_" + node.Name + ";\n            " + node.loop.update_cvar + ";\n         }";
 						flag = true;
 					}
-					if (edge3.GetT() == node)
+					if (edge3.T == node)
 					{
-						if (edge3.GetCondition().ToLower() != "other")
+						if (edge3.Condition.ToLower() != "other")
 						{
 							if (!flag)
 							{
 								string text11 = text;
-								text = text11 + "\r\n         if (" + edge3.GetCondition() + ") {\r\n            " + graph.Abbrv + "_State = " + graph.Abbrv + "_" + edge3.GetH().Name + ";";
+								text = text11 + "\r\n         if (" + edge3.Condition + ") {\r\n            " + graph.Abbrv + "_State = " + graph.Abbrv + "_" + edge3.H.Name + ";";
 								flag = true;
 							}
 							else
@@ -256,17 +256,17 @@ internal class Generator
 								if (node.forloop_enabled)
 								{
 									string text12 = text;
-									text = text12 + "\r\n         else if (!(" + node.loop.condition_cvar + ")) {\r\n            " + graph.Abbrv + "_State = " + graph.Abbrv + "_" + edge3.GetH().Name + ";";
+									text = text12 + "\r\n         else if (!(" + node.loop.condition_cvar + ")) {\r\n            " + graph.Abbrv + "_State = " + graph.Abbrv + "_" + edge3.H.Name + ";";
 									string text13 = text;
 									text = text13 + "\r\n            " + graph.Abbrv + "_" + node.Name + "_" + node.loop.initial + ";";
-									text = ((edge3.GetActions().Length <= 0) ? (text + "\r\n         }") : (text + "\r\n            " + edge3.GetActions().Replace("\n", "\r\n            ") + "\r\n         }"));
+									text = ((edge3.Actions.Length <= 0) ? (text + "\r\n         }") : (text + "\r\n            " + edge3.Actions.Replace("\n", "\r\n            ") + "\r\n         }"));
 									num++;
 									break;
 								}
 								string text2 = text;
-								text = text2 + "\r\n         else if (" + edge3.GetCondition() + ") {\r\n            " + graph.Abbrv + "_State = " + graph.Abbrv + "_" + edge3.GetH().Name + ";";
+								text = text2 + "\r\n         else if (" + edge3.Condition + ") {\r\n            " + graph.Abbrv + "_State = " + graph.Abbrv + "_" + edge3.H.Name + ";";
 							}
-							text = ((edge3.GetActions().Length <= 0) ? (text + "\r\n         }") : (text + "\r\n            " + edge3.GetActions().Replace("\n", "\r\n            ") + "\r\n         }"));
+							text = ((edge3.Actions.Length <= 0) ? (text + "\r\n         }") : (text + "\r\n            " + edge3.Actions.Replace("\n", "\r\n            ") + "\r\n         }"));
 						}
 						else
 						{
@@ -285,14 +285,14 @@ internal class Generator
 			if (flag2)
 			{
 				string text3 = text;
-				text = text3 + "\r\n         else {\r\n            " + graph.Abbrv + "_State = " + graph.Abbrv + "_" + graph.edges[index].GetH().Name + ";";
-				text = ((graph.edges[index].GetActions().Length <= 0) ? (text + "\r\n         }") : (text + "\r\n            " + graph.edges[index].GetActions().Replace("\n", "\r\n            ") + "\r\n         }"));
+				text = text3 + "\r\n         else {\r\n            " + graph.Abbrv + "_State = " + graph.Abbrv + "_" + graph.edges[index].H.Name + ";";
+				text = ((graph.edges[index].Actions.Length <= 0) ? (text + "\r\n         }") : (text + "\r\n            " + graph.edges[index].Actions.Replace("\n", "\r\n            ") + "\r\n         }"));
 			}
 			flag = false;
 			text += "\r\n         break;\r\n   ";
 		}
 		string text4 = text;
-		text = text4 + "   default:\r\n         " + graph.Abbrv + "_State = " + graph.Abbrv + "_" + graph.GetInitialStateName() + ";\r\n   } // Transitions\r\n\r\n   ";
+		text = text4 + "   default:\r\n         " + graph.Abbrv + "_State = " + graph.Abbrv + "_" + graph.InitialStateName + ";\r\n   } // Transitions\r\n\r\n   ";
 		text = text + "switch(" + graph.Abbrv + "_State) { // State actions\r\n   ";
 		foreach (Node node2 in graph.nodes)
 		{
@@ -353,27 +353,27 @@ internal class Generator
 			int num = 0;
 			foreach (Edge edge in graph.edges)
 			{
-				if (edge.GetCondition().Length == 0)
+				if (edge.Condition.Length == 0)
 				{
-					MessageBox.Show("Error: Empty condition in transition from state " + edge.GetT().Name, "Error");
+					MessageBox.Show("Error: Empty condition in transition from state " + edge.T.Name, "Error");
 					return "";
 				}
-				if (edge.GetT() == node2)
+				if (edge.T == node2)
 				{
-					if (edge.GetCondition().ToLower() != "other")
+					if (edge.Condition.ToLower() != "other")
 					{
 						if (!flag)
 						{
 							string text4 = text;
-							text = text4 + "\r\n            if (" + edge.GetCondition() + ") {\r\n               " + graph.Abbrv + "_State = " + graph.Abbrv + "_" + edge.GetH().Name + ";";
+							text = text4 + "\r\n            if (" + edge.Condition + ") {\r\n               " + graph.Abbrv + "_State = " + graph.Abbrv + "_" + edge.H.Name + ";";
 							flag = true;
 						}
 						else
 						{
 							string text5 = text;
-							text = text5 + "\r\n            else if (" + edge.GetCondition() + ") {\r\n               " + graph.Abbrv + "_State = " + graph.Abbrv + "_" + edge.GetH().Name + ";";
+							text = text5 + "\r\n            else if (" + edge.Condition + ") {\r\n               " + graph.Abbrv + "_State = " + graph.Abbrv + "_" + edge.H.Name + ";";
 						}
-						text = ((edge.GetActions().Length <= 0) ? (text + "\r\n            }") : (text + "\r\n               " + edge.GetActions() + "\r\n            }"));
+						text = ((edge.Actions.Length <= 0) ? (text + "\r\n            }") : (text + "\r\n               " + edge.Actions + "\r\n            }"));
 					}
 					else
 					{
@@ -391,13 +391,13 @@ internal class Generator
 			if (flag2)
 			{
 				string text6 = text;
-				text = text6 + "\r\n            else {\r\n               " + graph.Abbrv + "_State = " + graph.Abbrv + "_" + graph.edges[index].GetH().Name + ";";
-				text = ((graph.edges[index].GetActions().Length <= 0) ? (text + "\r\n            }") : (text + "\r\n               " + graph.edges[index].GetActions() + "\r\n            }"));
+				text = text6 + "\r\n            else {\r\n               " + graph.Abbrv + "_State = " + graph.Abbrv + "_" + graph.edges[index].H.Name + ";";
+				text = ((graph.edges[index].Actions.Length <= 0) ? (text + "\r\n            }") : (text + "\r\n               " + graph.edges[index].Actions + "\r\n            }"));
 			}
 			flag = false;
 			text += "\r\n            break;\r\n      ";
 		}
 		string text7 = text;
-		return text7 + "   default:\r\n            " + graph.Abbrv + "_State = " + graph.Abbrv + "_" + graph.GetInitialStateName() + ";\r\n      } // Transitions\r\n   ";
+		return text7 + "   default:\r\n            " + graph.Abbrv + "_State = " + graph.Abbrv + "_" + graph.InitialStateName + ";\r\n      } // Transitions\r\n   ";
 	}
 }

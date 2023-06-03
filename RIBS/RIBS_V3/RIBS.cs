@@ -1692,10 +1692,10 @@ public class RIBS : Form
                 mode = Mode.AddEdge;
                 break;
             case Mode.AddEdge:
-                if (newedge.GetT() != null)
+                if (newedge.T != null)
                 {
-                    newedge.GetT().edges.Remove(newedge);
-                    newedge.SetT(null);
+                    newedge.                    T.edges.Remove(newedge);
+                    newedge.                    T = null;
                 }
                 break;
         }
@@ -1735,7 +1735,7 @@ public class RIBS : Form
                 }
                 return;
             }
-            if (item2.GetInitialStateName() == "")
+            if (item2.InitialStateName == "")
             {
                 MessageBox.Show("All state machines must have an initial state selected.");
                 return;
@@ -1974,7 +1974,7 @@ public class RIBS : Form
         }
         if (selected_edge != null)
         {
-            selected_edge.SetActions(ObjectActions_Textbox.Text);
+            selected_edge.            Actions = ObjectActions_Textbox.Text;
             lock (graphic)
             {
                 graph[current_graph].Draw(graphic.Graphics, backgroundpanel);
@@ -1987,7 +1987,7 @@ public class RIBS : Form
     {
         if (selected_edge != null)
         {
-            selected_edge.SetCondition(ObjectCondition_Textbox.Text);
+            selected_edge.            Condition = ObjectCondition_Textbox.Text;
             lock (graphic)
             {
                 graph[current_graph].Draw(graphic.Graphics, backgroundpanel);
@@ -2377,8 +2377,8 @@ public class RIBS : Form
             {
                 foreach (Graph item in graph)
                 {
-                    item.GetCurrentNode().rect.Height = 55;
-                    item.GetCurrentNode().rect.Width = 55;
+                    item.                    CurrentNode.rect.Height = 55;
+                    item.                    CurrentNode.rect.Width = 55;
                 }
                 rimsWorkerSocket.Close();
                 rimsWorkerSocket = null;
@@ -2392,8 +2392,8 @@ public class RIBS : Form
         {
             foreach (Graph item2 in graph)
             {
-                item2.GetCurrentNode().rect.Height = 55;
-                item2.GetCurrentNode().rect.Width = 55;
+                item2.                CurrentNode.rect.Height = 55;
+                item2.                CurrentNode.rect.Width = 55;
             }
             rims_mode = false;
             return;
@@ -2460,8 +2460,8 @@ public class RIBS : Form
         graph[current_graph].CleanColors();
         foreach (Graph item in graph)
         {
-            item.GetCurrentNode().rect.Height = 55;
-            item.GetCurrentNode().rect.Width = 55;
+            item.            CurrentNode.rect.Height = 55;
+            item.            CurrentNode.rect.Width = 55;
         }
         foreach (Graph item2 in graph)
         {
@@ -2521,8 +2521,8 @@ public class RIBS : Form
             ObjectInitialState_Checkbox.Enabled = false;
             ObjectName_Textbox.Enabled = false;
             ObjectName_Textbox.Text = "";
-            ObjectActions_Textbox.Text = selected_edge.GetActions();
-            ObjectCondition_Textbox.Text = selected_edge.GetCondition();
+            ObjectActions_Textbox.Text = selected_edge.Actions;
+            ObjectCondition_Textbox.Text = selected_edge.Condition;
         }
     }
 
@@ -2886,8 +2886,8 @@ public class RIBS : Form
         {
             this.graph[0].SetLocalCode_Text("/*VARIABLES MUST BE DECLARED STATIC*/\r\n/*e.g., static int x = 0;*/\r\n" + this.graph[0].GlobalCode);
         }
-        y_offset = graph.Getyoffset;
-        x_offset = graph.Getxoffset;
+        y_offset = graph.YOffset;
+        x_offset = graph.XOffset;
         DisableObjectDialog();
         is_saved = true;
         MouseEventArgs e2 = new MouseEventArgs(MouseButtons.Left, 1, 10, 10, 10);
@@ -2920,7 +2920,7 @@ public class RIBS : Form
             }
             selected_edge = null;
         }
-        Node currentNode = graph[current_graph].GetCurrentNode();
+        Node currentNode = graph[current_graph].CurrentNode;
         if (currentNode != null)
         {
             lock (graphic)
@@ -2990,8 +2990,8 @@ public class RIBS : Form
         {
             SimulateStateMachine_Button.Enabled = true;
         }
-        y_offset = graph[current_graph].Getyoffset;
-        x_offset = graph[current_graph].Getxoffset;
+        y_offset = graph[current_graph].YOffset;
+        x_offset = graph[current_graph].XOffset;
         DisableObjectDialog();
     }
 
@@ -3034,10 +3034,10 @@ public class RIBS : Form
     {
         foreach (Graph item in graph)
         {
-            if (item.GetCurrentNode() != null && item.GetCurrentNode().rect.Width > 55)
+            if (item.CurrentNode != null && item.CurrentNode.rect.Width > 55)
             {
-                item.GetCurrentNode().rect.Width--;
-                item.GetCurrentNode().rect.Height--;
+                item.                CurrentNode.rect.Width--;
+                item.                CurrentNode.rect.Height--;
             }
         }
         try
@@ -3213,7 +3213,7 @@ public class RIBS : Form
             {
                 foreach (Edge edge in graph[current_graph].edges)
                 {
-                    if (edge.GetT() == selected_node)
+                    if (edge.T == selected_node)
                     {
                         flag = true;
                         break;
@@ -3249,7 +3249,7 @@ public class RIBS : Form
             {
                 foreach (Edge edge3 in graph[current_graph].edges)
                 {
-                    if (edge3.GetT() == selected_node)
+                    if (edge3.T == selected_node)
                     {
                         flag2 = true;
                         break;
@@ -3297,7 +3297,7 @@ public class RIBS : Form
             {
                 foreach (Edge edge5 in selected_node.edges)
                 {
-                    if (edge5.GetT() == selected_node)
+                    if (edge5.T == selected_node)
                     {
                         flag4 = true;
                         break;
@@ -3435,19 +3435,19 @@ public class RIBS : Form
         ObjectActions_Textbox.Text = action;
     }
 
-    public void setPeriod(string period)
+    public void SetPeriod(string period)
     {
         StateMachinePeriod_Textbox.Text = period;
     }
 
-    public void setIfElseEdge(string stateName)
+    public void SetIfElseEdge(string stateName)
     {
         selected_node = graph[current_graph].GetNodeByName(stateName);
         selected_node.priority_enabled = true;
         selected_node.forloop_enabled = false;
     }
 
-    public void setForEdge(string stateName, string initial, string condition, string update)
+    public void SetForEdge(string stateName, string initial, string condition, string update)
     {
         selected_node = graph[current_graph].GetNodeByName(stateName);
         selected_node.priority_enabled = false;

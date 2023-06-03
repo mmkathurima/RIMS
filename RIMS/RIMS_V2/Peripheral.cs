@@ -94,12 +94,9 @@ public class Peripheral
 		symbols = (List<SymbolInfo>)Invoke("RegisterSymbols", null);
 	}
 
-	public List<SymbolInfo> GetSymbolUpdates()
-	{
-		return (List<SymbolInfo>)Invoke("GetSymbolUpdates", null);
-	}
+    public List<SymbolInfo> SymbolUpdates => (List<SymbolInfo>)Invoke("GetSymbolUpdates", null);
 
-	private object Invoke(string function, params object[] args)
+    private object Invoke(string function, params object[] args)
 	{
 		if (!AssemblyLoaded())
 		{

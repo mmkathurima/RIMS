@@ -374,78 +374,84 @@ public class TSmartProgressBar : Label
 		base.OnPaint(e);
 	}
 
-	private int GetTopOffSet()
-	{
-		if (!m_ProgressBarMarginOffset)
-		{
-			if (m_ProgressBarBorderStyle == TProgressBarBorderStyle.Sunken || m_ProgressBarBorderStyle == TProgressBarBorderStyle.Flat)
-			{
-				return 2;
-			}
-			if (m_ProgressBarBorderStyle == TProgressBarBorderStyle.None)
-			{
-				return 0;
-			}
-			return 1;
-		}
-		if (m_ProgressBarBorderStyle == TProgressBarBorderStyle.Flat || m_ProgressBarBorderStyle == TProgressBarBorderStyle.Sunken)
-		{
-			return 3;
-		}
-		if (m_ProgressBarBorderStyle == TProgressBarBorderStyle.None)
-		{
-			return 1;
-		}
-		return 2;
-	}
+    private int TopOffSet
+    {
+        get
+        {
+            if (!m_ProgressBarMarginOffset)
+            {
+                if (m_ProgressBarBorderStyle == TProgressBarBorderStyle.Sunken || m_ProgressBarBorderStyle == TProgressBarBorderStyle.Flat)
+                {
+                    return 2;
+                }
+                if (m_ProgressBarBorderStyle == TProgressBarBorderStyle.None)
+                {
+                    return 0;
+                }
+                return 1;
+            }
+            if (m_ProgressBarBorderStyle == TProgressBarBorderStyle.Flat || m_ProgressBarBorderStyle == TProgressBarBorderStyle.Sunken)
+            {
+                return 3;
+            }
+            if (m_ProgressBarBorderStyle == TProgressBarBorderStyle.None)
+            {
+                return 1;
+            }
+            return 2;
+        }
+    }
 
-	private int GetLeftOffSet()
-	{
-		if (!m_ProgressBarMarginOffset)
-		{
-			if (m_ProgressBarBorderStyle == TProgressBarBorderStyle.Flat)
-			{
-				return 2;
-			}
-			if (m_ProgressBarBorderStyle == TProgressBarBorderStyle.None)
-			{
-				return 0;
-			}
-			return 1;
-		}
-		if (m_ProgressBarBorderStyle == TProgressBarBorderStyle.Flat || m_ProgressBarBorderStyle == TProgressBarBorderStyle.Sunken)
-		{
-			return 3;
-		}
-		if (m_ProgressBarBorderStyle == TProgressBarBorderStyle.None)
-		{
-			return 1;
-		}
-		return 2;
-	}
+    private int LeftOffSet
+    {
+        get
+        {
+            if (!m_ProgressBarMarginOffset)
+            {
+                if (m_ProgressBarBorderStyle == TProgressBarBorderStyle.Flat)
+                {
+                    return 2;
+                }
+                if (m_ProgressBarBorderStyle == TProgressBarBorderStyle.None)
+                {
+                    return 0;
+                }
+                return 1;
+            }
+            if (m_ProgressBarBorderStyle == TProgressBarBorderStyle.Flat || m_ProgressBarBorderStyle == TProgressBarBorderStyle.Sunken)
+            {
+                return 3;
+            }
+            if (m_ProgressBarBorderStyle == TProgressBarBorderStyle.None)
+            {
+                return 1;
+            }
+            return 2;
+        }
+    }
 
-	private void DrawProgressBar(Graphics g)
+    private void DrawProgressBar(Graphics g)
 	{
 		decimal num = (decimal)m_Value / (decimal)m_Maximum;
-		int num2 = (int)((decimal)(base.ClientRectangle.Width - GetLeftOffSet() * 2) * num);
+		int num2 = (int)((decimal)(base.ClientRectangle.Width - LeftOffSet * 2) * num);
 		int num3 = m_ProgressBarBlockWidth + m_ProgressBarBlockSpace;
 		int num4 = num2 / num3 * num3;
-		if (num > 0.99m && base.ClientRectangle.Width - GetLeftOffSet() * 2 - num4 > 0)
+		if (num > 0.99m && base.ClientRectangle.Width - LeftOffSet * 2 - num4 > 0)
 		{
-			num4 += (base.ClientRectangle.Width - GetLeftOffSet() * 2 - num4) / num3;
+			num4 += (base.ClientRectangle.Width - LeftOffSet * 2 - num4) / num3;
 		}
-		int num5 = base.ClientRectangle.Left + GetLeftOffSet();
-		int num6 = base.ClientRectangle.Top + GetTopOffSet();
-		int num7 = base.ClientRectangle.Height - GetTopOffSet() * 2;
+		int num5 = base.ClientRectangle.Left + LeftOffSet;
+		int num6 = base.ClientRectangle.Top + TopOffSet;
+		int num7 = base.ClientRectangle.Height - TopOffSet * 2;
 		for (int j = num3; j <= num4; j += num3)
 		{
 			g.FillRectangle(m_ProgressBarFillBrush, num5, num6, m_ProgressBarBlockWidth, num7);
 			num5 += num3;
 		}
-		int num8 = base.ClientRectangle.Width - num5 - GetLeftOffSet();
+		int num8 = base.ClientRectangle.Width - num5 - LeftOffSet;
 		if (num8 > 0 && num8 < num3)
 		{
-			int i = base.ClientRectangle.Width - num5 - GetLeftOffSet();
+			int i = base.ClientRectangle.Width - num5 - LeftOffSet;
 			if (i > 0)
 			{
 				g.FillRectangle(m_ProgressBarFillBrush, num5, num6, i, num7);

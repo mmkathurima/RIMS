@@ -118,21 +118,21 @@ public class Project
                         {
                             Edge edge = new Edge();
                             edge.SetID(Convert.ToInt32(streamReader.ReadLine().Replace("id: ", "")));
-                            edge.SetT(graph2.nodes[Convert.ToInt32(streamReader.ReadLine().Replace("tail: ", ""))]);
-                            edge.SetH(graph2.nodes[Convert.ToInt32(streamReader.ReadLine().Replace("head: ", ""))]);
-                            edge.SetActions(streamReader.ReadLine().Replace("\\r\\n", "\r\n").Replace("actions: ", ""));
-                            edge.SetCondition(streamReader.ReadLine().Replace("\\r\\n", "\r\n").Replace("condition: ", ""));
-                            edge.SetIsBezier(Convert.ToBoolean(streamReader.ReadLine().Replace("isbezier: ", "")));
+                            edge.                            T = graph2.nodes[Convert.ToInt32(streamReader.ReadLine().Replace("tail: ", ""))];
+                            edge.                            H = graph2.nodes[Convert.ToInt32(streamReader.ReadLine().Replace("head: ", ""))];
+                            edge.                            Actions = streamReader.ReadLine().Replace("\\r\\n", "\r\n").Replace("actions: ", "");
+                            edge.                            Condition = streamReader.ReadLine().Replace("\\r\\n", "\r\n").Replace("condition: ", "");
+                            edge.                            IsBezier = Convert.ToBoolean(streamReader.ReadLine().Replace("isbezier: ", ""));
                             edge.arc.h1.X = Convert.ToInt32(streamReader.ReadLine().Replace("h1x: ", ""));
                             edge.arc.h1.Y = Convert.ToInt32(streamReader.ReadLine().Replace("h1y: ", ""));
                             edge.arc.h2.X = Convert.ToInt32(streamReader.ReadLine().Replace("h2x: ", ""));
                             edge.arc.h2.Y = Convert.ToInt32(streamReader.ReadLine().Replace("h2y: ", ""));
-                            if (edge.GetH() == edge.GetT())
+                            if (edge.H == edge.T)
                             {
                                 edge.SetBezierSelf();
                             }
-                            edge.GetH().AddEdge(edge);
-                            edge.GetT().AddEdge(edge);
+                            edge.                            H.AddEdge(edge);
+                            edge.                            T.AddEdge(edge);
                             graph2.edges.Add(edge);
                         }
                     }

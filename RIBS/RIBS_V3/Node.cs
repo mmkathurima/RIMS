@@ -234,7 +234,7 @@ public class Node : ISerializable
         {
             foreach (Edge edge in edges)
             {
-                if (edge.GetT() == this)
+                if (edge.T == this)
                 {
                     edge.Draw(g);
                 }

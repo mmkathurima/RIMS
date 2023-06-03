@@ -47,12 +47,12 @@ internal class TransitionIfElseForm : Form
 		dataTable.Columns.Add("Destination");
 		foreach (Edge edge in node.edges)
 		{
-			if (edge.GetT() == node)
+			if (edge.T == node)
 			{
 				DataRow dataRow = dataTable.NewRow();
-				dataRow["Destination"] = edge.GetH().Name;
-				dataRow["Condition"] = edge.GetCondition();
-				dataRow["Priority"] = edge.GetPriority();
+				dataRow["Destination"] = edge.H.Name;
+				dataRow["Condition"] = edge.Condition;
+				dataRow["Priority"] = edge.Priority;
 				dataTable.Rows.Add(dataRow);
 			}
 		}
@@ -63,7 +63,7 @@ internal class TransitionIfElseForm : Form
 			dataRow2["Condition"] = "other";
 			if (node.edges.Count >= 1)
 			{
-				dataRow2["Priority"] = node.edges.Max((Edge m) => m.GetPriority()) + 1;
+				dataRow2["Priority"] = node.edges.Max((Edge m) => m.Priority) + 1;
 			}
 			else
 			{
@@ -77,7 +77,7 @@ internal class TransitionIfElseForm : Form
 	public void Bind(Node n)
 	{
 		node = n;
-		Edge edge = node.edges.Find((Edge ed) => ed.GetT() == node && ed.GetCondition() == "other");
+		Edge edge = node.edges.Find((Edge ed) => ed.T == node && ed.Condition == "other");
 		otherexists = edge != null;
 		table = GenerateData();
 		bs = new BindingSource(table, null);
@@ -144,22 +144,22 @@ internal class TransitionIfElseForm : Form
 			DataGridViewRow dataGridViewRow2 = dataGridView1.Rows[rowIndex];
 			string destination = dataGridViewRow.Cells["Destination"].Value.ToString();
 			string condition = dataGridViewRow.Cells["Condition"].Value.ToString();
-			Edge edge = node.edges.Find((Edge ed) => ed.GetT() == node && ed.GetH().Name == destination && ed.GetCondition() == condition);
+			Edge edge = node.edges.Find((Edge ed) => ed.T == node && ed.H.Name == destination && ed.Condition == condition);
 			if (edge == null)
 			{
 				throw new Exception("Could not find matching edge");
 			}
 			int priority = Convert.ToInt32(dataGridViewRow2.Cells["Priority"].Value);
-			edge.SetPriority(priority);
+			edge.			Priority = priority;
 			destination = dataGridViewRow2.Cells["Destination"].Value.ToString();
 			condition = dataGridViewRow2.Cells["Condition"].Value.ToString();
-			edge = node.edges.Find((Edge ed) => ed.GetT() == node && ed.GetH().Name == destination && ed.GetCondition() == condition);
+			edge = node.edges.Find((Edge ed) => ed.T == node && ed.H.Name == destination && ed.Condition == condition);
 			if (edge == null)
 			{
 				throw new Exception("Could not find matching edge");
 			}
 			int priority2 = Convert.ToInt32(dataGridViewRow.Cells["Priority"].Value);
-			edge.SetPriority(priority2);
+			edge.			Priority = priority2;
             (dataGridViewRow2.Cells["Priority"].Value, dataGridViewRow.Cells["Priority"].Value) = 
 				(dataGridViewRow.Cells["Priority"].Value, dataGridViewRow2.Cells["Priority"].Value);
             table.AcceptChanges();
@@ -256,22 +256,22 @@ internal class TransitionIfElseForm : Form
 	{
 		string destination = rowToMove.Cells["Destination"].Value.ToString();
 		string condition = rowToMove.Cells["Condition"].Value.ToString();
-		Edge edge = node.edges.Find((Edge ed) => ed.GetT() == node && ed.GetH().Name == destination && ed.GetCondition() == condition);
+		Edge edge = node.edges.Find((Edge ed) => ed.T == node && ed.H.Name == destination && ed.Condition == condition);
 		if (edge == null)
 		{
 			throw new Exception("Could not find matching edge");
 		}
 		int priority = Convert.ToInt32(fromRow.Cells["Priority"].Value);
-		edge.SetPriority(priority);
+		edge.		Priority = priority;
 		destination = fromRow.Cells["Destination"].Value.ToString();
 		condition = fromRow.Cells["Condition"].Value.ToString();
-		edge = node.edges.Find((Edge ed) => ed.GetT() == node && ed.GetH().Name == destination && ed.GetCondition() == condition);
+		edge = node.edges.Find((Edge ed) => ed.T == node && ed.H.Name == destination && ed.Condition == condition);
 		if (edge == null)
 		{
 			throw new Exception("Could not find matching edge");
 		}
 		int priority2 = Convert.ToInt32(rowToMove.Cells["Priority"].Value);
-		edge.SetPriority(priority2);
+		edge.		Priority = priority2;
 	}
 
 	protected override void Dispose(bool disposing)

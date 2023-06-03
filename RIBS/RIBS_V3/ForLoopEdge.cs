@@ -13,7 +13,7 @@ public class ForLoopEdge : Edge, ISerializable
 
 	public ForLoopEdge(Node tail)
 	{
-		SetT(tail);
+		T = tail;
 		is_bezier = true;
 	}
 
@@ -75,9 +75,5 @@ public class ForLoopEdge : Edge, ISerializable
 				g.DrawString(text + " /\n" + actions, font, Brushes.Black, point2);
 			}
 		}
-	}
-
-	public override void SetCondition(string s)
-	{
 	}
 }

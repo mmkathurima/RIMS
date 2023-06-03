@@ -14,7 +14,7 @@ public class InitEdge : Edge, ISerializable
 	public InitEdge(InitState tail)
 	{
 		is_bezier = false;
-		SetT(tail);
+		T = tail;
 	}
 
 	public InitEdge(SerializationInfo info, StreamingContext ctxt)
@@ -50,9 +50,5 @@ public class InitEdge : Edge, ISerializable
 				g.DrawString(condition + " /\n" + actions, font, Brushes.Black, point3);
 			}
 		}
-	}
-
-	public override void SetCondition(string s)
-	{
 	}
 }

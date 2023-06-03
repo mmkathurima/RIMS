@@ -122,7 +122,7 @@ public class Graph : ISerializable
         {
             if (node.IsInitial)
             {
-                initedge.SetH(node);
+                initedge.                H = node;
             }
         }
     }
@@ -212,21 +212,21 @@ public class Graph : ISerializable
                 {
                     Edge edge = new Edge();
                     edge.SetID(Convert.ToInt32(streamReader.ReadLine().Replace("id: ", "")));
-                    edge.SetT(graph.nodes[Convert.ToInt32(streamReader.ReadLine().Replace("tail: ", ""))]);
-                    edge.SetH(graph.nodes[Convert.ToInt32(streamReader.ReadLine().Replace("head: ", ""))]);
-                    edge.SetActions(streamReader.ReadLine().Replace("\\r\\n", "\r\n").Replace("actions: ", ""));
-                    edge.SetCondition(streamReader.ReadLine().Replace("\\r\\n", "\r\n").Replace("condition: ", ""));
-                    edge.SetIsBezier(Convert.ToBoolean(streamReader.ReadLine().Replace("isbezier: ", "")));
+                    edge.                    T = graph.nodes[Convert.ToInt32(streamReader.ReadLine().Replace("tail: ", ""))];
+                    edge.                    H = graph.nodes[Convert.ToInt32(streamReader.ReadLine().Replace("head: ", ""))];
+                    edge.                    Actions = streamReader.ReadLine().Replace("\\r\\n", "\r\n").Replace("actions: ", "");
+                    edge.                    Condition = streamReader.ReadLine().Replace("\\r\\n", "\r\n").Replace("condition: ", "");
+                    edge.                    IsBezier = Convert.ToBoolean(streamReader.ReadLine().Replace("isbezier: ", ""));
                     edge.arc.h1.X = Convert.ToInt32(streamReader.ReadLine().Replace("h1x: ", ""));
                     edge.arc.h1.Y = Convert.ToInt32(streamReader.ReadLine().Replace("h1y: ", ""));
                     edge.arc.h2.X = Convert.ToInt32(streamReader.ReadLine().Replace("h2x: ", ""));
                     edge.arc.h2.Y = Convert.ToInt32(streamReader.ReadLine().Replace("h2y: ", ""));
-                    if (edge.GetH() == edge.GetT())
+                    if (edge.H == edge.T)
                     {
                         edge.SetBezierSelf();
                     }
-                    edge.GetH().AddEdge(edge);
-                    edge.GetT().AddEdge(edge);
+                    edge.                    H.AddEdge(edge);
+                    edge.                    T.AddEdge(edge);
                     graph.edges.Add(edge);
                 }
             }
@@ -244,22 +244,22 @@ public class Graph : ISerializable
         {
             foreach (Edge edge in n.edges)
             {
-                if (edge.GetH() == n)
+                if (edge.H == n)
                 {
-                    foreach (Edge edge2 in edge.GetT().edges)
+                    foreach (Edge edge2 in edge.T.edges)
                     {
-                        if (edge2.GetPriority() > edge.GetPriority())
+                        if (edge2.Priority > edge.Priority)
                         {
-                            edge2.SetPriority(edge2.GetPriority() - 1);
+                            edge2.                            Priority = edge2.Priority - 1;
                         }
                     }
-                    if (edge.GetH() != edge.GetT())
+                    if (edge.H != edge.T)
                     {
-                        edge.GetT().edges.Remove(edge);
+                        edge.                        T.edges.Remove(edge);
                     }
-                    if (edge.GetT().forloop_enabled)
+                    if (edge.T.forloop_enabled)
                     {
-                        edge.GetT().for_edge = null;
+                        edge.                        T.for_edge = null;
                     }
                 }
                 edges.Remove(edge);
@@ -272,28 +272,28 @@ public class Graph : ISerializable
             nodes.Remove(n);
             if (n.IsInitial)
             {
-                initedge.SetH(null);
+                initedge.                H = null;
             }
             n.Delete();
         }
-        else if (!e.GetT().forloop_enabled)
+        else if (!e.T.forloop_enabled)
         {
-            foreach (Edge edge3 in e.GetT().edges)
+            foreach (Edge edge3 in e.T.edges)
             {
-                if (edge3.GetPriority() > e.GetPriority())
+                if (edge3.Priority > e.Priority)
                 {
-                    edge3.SetPriority(edge3.GetPriority() - 1);
+                    edge3.                    Priority = edge3.Priority - 1;
                 }
             }
             edges.Remove(e);
-            e.GetT().edges.Remove(e);
-            e.GetH().edges.Remove(e);
+            e.            T.edges.Remove(e);
+            e.            H.edges.Remove(e);
             e.Delete();
         }
         else
         {
             edges.Remove(e);
-            e.GetT().for_edge = null;
+            e.            T.for_edge = null;
             e.Delete();
         }
     }
@@ -303,7 +303,7 @@ public class Graph : ISerializable
         if (!enabled)
         {
             n.            IsInitial = false;
-            initedge.SetH(null);
+            initedge.            H = null;
             return -1;
         }
         int result = 0;
@@ -318,7 +318,7 @@ public class Graph : ISerializable
         }
         if (!flag)
         {
-            initedge.SetH(n);
+            initedge.            H = n;
             int dx = n.rect.X - init.rect.X - 100;
             int dy = n.rect.Y - init.rect.Y - 100;
             init.Shift(dx, dy);
@@ -328,16 +328,19 @@ public class Graph : ISerializable
         return result;
     }
 
-    public string GetInitialStateName()
+    public string InitialStateName
     {
-        foreach (Node node in nodes)
+        get
         {
-            if (node.IsInitial)
+            foreach (Node node in nodes)
             {
-                return node.Name;
+                if (node.IsInitial)
+                {
+                    return node.Name;
+                }
             }
+            return "";
         }
-        return "";
     }
 
     public Node AddNode(int x, int y)
@@ -380,7 +383,7 @@ public class Graph : ISerializable
             {
                 continue;
             }
-            if (e.GetT() == null)
+            if (e.T == null)
             {
                 if (!node.forloop_enabled)
                 {
@@ -420,8 +423,8 @@ public class Graph : ISerializable
         {
             return;
         }
-        e.SetH(n);
-        if (n == e.GetT())
+        e.        H = n;
+        if (n == e.T)
         {
             e.SetBezierSelf();
         }
@@ -430,17 +433,17 @@ public class Graph : ISerializable
             e.ComputeBezier();
         }
         int num = 0;
-        if (!e.GetT().forloop_enabled)
+        if (!e.T.forloop_enabled)
         {
-            foreach (Edge edge in e.GetT().edges)
+            foreach (Edge edge in e.T.edges)
             {
-                if (edge.GetT() == e.GetT() && edge.GetPriority() > num && edge != e)
+                if (edge.T == e.T && edge.Priority > num && edge != e)
                 {
-                    num = edge.GetPriority();
+                    num = edge.Priority;
                 }
             }
         }
-        e.SetPriority(num + 1);
+        e.        Priority = num + 1;
         n.AddEdge(e);
     }
 
@@ -457,13 +460,16 @@ public class Graph : ISerializable
         return null;
     }
 
-    public Node GetCurrentNode()
+    public Node CurrentNode
     {
-        if (current_node == -1 || current_node >= nodes.Count)
+        get
         {
-            return null;
+            if (current_node == -1 || current_node >= nodes.Count)
+            {
+                return null;
+            }
+            return nodes[current_node];
         }
-        return nodes[current_node];
     }
 
     public Node SetCurrentNode(int n)
@@ -595,9 +601,9 @@ public class Graph : ISerializable
         set => enable_uart = value;
     }
 
-    public int Getyoffset => y_offset;
+    public int YOffset => y_offset;
 
-    public int Getxoffset => x_offset;
+    public int XOffset => x_offset;
 
     public void CleanColors()
     {
