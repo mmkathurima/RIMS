@@ -21,7 +21,7 @@ The simulator requires the following software to be installed on your system:
 - Windows Media Player Legacy
 - Visual C++ 2015 Redistributable
 
-This software tool currently works on Windows machines (7 and above) where the above dependencies are installed.
+This software tool currently works on Windows machines (7 and above) and Linux where the above dependencies are installed.
 
 # Installation
 To install the simulator, follow these steps:
@@ -30,6 +30,15 @@ To install the simulator, follow these steps:
 2. Open the solution file in Visual Studio or another IDE that supports .NET development.
 3. Build the project using the IDE's build tools.
 4. Run the simulator using the IDE's debugging tools.
+
+For Linux Machines, RIMS has been tested on Kali Linux with an installation of Windows Media Player 11. 
+1. Ensure that Wine is installed by following their [official guide](https://wiki.winehq.org/Download). 
+2. [Download Winetricks](https://wiki.winehq.org/Winetricks) and run it.
+3. Choose or create a new prefix.
+4. Install a Windows DLL or component.
+5. Locate `wmp` from the list, preferrably the latest - 11. 
+6. Wait for the installation process to finish.
+7. Run the `rims.exe` as you would on Windows. It is important to note that audio may not work.
 
 # Usage
 To use the simulator, follow these steps:
